@@ -1,38 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🎼 Adagio (Frontend)
 
-## Getting Started
+Este é o repositório do frontend do projeto Adagio, uma rede social voltada para músicos.
 
-First, run the development server:
+## 👀 Visão Geral
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+O Adagio tem como objetivo conectar músicos e entusiastas da música, permitindo que eles compartilhem experiências, criem eventos, bandas, Jam sessions e mais. O frontend foi construído com Next e utiliza diversas bibliotecas e ferramentas modernas para fornecer uma experiência de usuário agradável e responsiva.
+
+---
+
+## 🚀 Tecnologias utilizadas
+
+![Next JS](https://img.shields.io/badge/Next.js-000?logo=nextdotjs&logoColor=fff&style=for-the-badge) 
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white) 
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white) 
+![styled-components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
+
+---
+
+## 🏗️ Metodologia de design
+
+O Adagio está sendo desenvolvido seguindo a metodologia de design Atomic Design. Isso significa que estamos criando componentes de UI de baixo para cima, começando com os componentes básicos e gradualmente construindo componentes mais complexos.
+
+---
+
+## 💻 Configuração
+- Clone o repositório e acesse o diretório raiz
+- Instale as dependências do projeto com o comando npm install
+- Crie um arquivo .env na raiz do projeto e adicione as seguintes variáveis de ambiente: 
+```env 
+REACT_APP_API_URL=<URL da API do Adagio>
 ```
+- Inicie o servidor local com o comando npm start
+  
+---
+## Contribuindo 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Para contribuir com o projeto, siga os passos abaixo:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Faça um fork deste repositório
+- Crie uma branch para a sua feature (git checkout -b feature/nome-da-feature)
+- Faça as alterações e commit (git commit -am 'feat: Adiciona nova feature') (utilize conventionals commits)
+- Envie as alterações para o seu fork (git push origin feature/nome-da-feature)
+- Abra um pull request para o repositório original

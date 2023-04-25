@@ -16,7 +16,7 @@ const Nav: React.FC<NavProps> = ({ items }) => {
 
   return (
     <div className="flex w-48 bg-carbone-secondary h-12 items-center p-4">
-            asfkjasf
+            Explorar
         
     </div>
   );

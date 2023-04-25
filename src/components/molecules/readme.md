@@ -84,3 +84,14 @@ const styles = {
 };
 export default styles;
 ```
+
+# types.ts
+o arquivo `types.ts` deve conter as definições de tipo para as propriedades do componente. Isso ajuda a garantir que as propriedades sejam passadas corretamente para o componente e ajuda a documentar o que cada propriedade significa.
+
+export interface FormFieldProps {
+  label: string;
+  value: string;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onSubmit: () => void;
+}
+

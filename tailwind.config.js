@@ -12,6 +12,9 @@ module.exports = {
       carbone: {
         DEFAULT: '#30333F',
         secondary: '#1F2128',
+      },
+      white: {
+        DEFAULT: '#FFFFFF',
       }
     },
     extend: {

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import tw from "tailwind-styled-components";
 import { TopbarProps } from "./types";
 import { Avatar } from "@/components/molecules/AvatarMenu";
+import { TopbarMainMenu } from "@/components/molecules/TopbarMainMenu";
 
 export const TopbarComponent = tw.header`
     flex
@@ -19,6 +20,7 @@ export const TopbarComponent = tw.header`
 export const Topbar: React.FC<TopbarProps> = ({ children }) => {
   return <TopbarComponent>
     {children}
+    <TopbarMainMenu />
     <Avatar />
   </TopbarComponent>;
 };

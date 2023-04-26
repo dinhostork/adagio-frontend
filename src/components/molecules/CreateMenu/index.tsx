@@ -3,6 +3,7 @@ import { MenuHeader } from "@/components/atoms/MenuHeader";
 import { MenuItem } from "@/components/atoms/MenuItem";
 import { MenuItemWrapper } from "@/components/atoms/MenuItemWrapper";
 import MenuWrapper from "@/components/atoms/MenuWrapper";
+import { mainMenuWrapperPosition } from "@/styles/shared/componentsStyles";
 import { useComponentsMenu } from "@/utils/componentsToggleMenu";
 import { useCallback } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
@@ -32,11 +33,7 @@ export const CreateMenu: React.FC = () => {
         {isOpenCreateMenu && (
           <MenuWrapper
             ref={menuRefCreate}
-            style={{
-              top: -10,
-              left: -140,
-              zIndex: 10,
-            }}
+            className={mainMenuWrapperPosition}
           >
             <Menu width="w-48" className="flex flex-col">
               <MenuHeader title="Criar" />

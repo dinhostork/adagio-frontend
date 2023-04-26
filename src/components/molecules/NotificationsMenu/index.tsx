@@ -4,6 +4,7 @@ import { MenuHeader } from "@/components/atoms/MenuHeader";
 import { MenuItem } from "@/components/atoms/MenuItem";
 import { MenuItemWrapper } from "@/components/atoms/MenuItemWrapper";
 import MenuWrapper from "@/components/atoms/MenuWrapper";
+import { mainMenuWrapperPosition } from "@/styles/shared/componentsStyles";
 import { useComponentsMenu } from "@/utils/componentsToggleMenu";
 import { useCallback } from "react";
 import { AiOutlineBell } from "react-icons/ai";
@@ -36,11 +37,8 @@ export const NotificationsMenu: React.FC = () => {
         {isOpenNotificationsMenu && (
           <MenuWrapper
             ref={menuRefNotifications}
-            style={{
-              top: -10,
-              left: -150,
-              zIndex: 10,
-            }}
+            className={mainMenuWrapperPosition}
+
           >
             <Menu width="w-48" className="flex flex-col relative">
               <MenuHeader title="Notificações" />

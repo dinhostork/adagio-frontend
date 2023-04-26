@@ -11,6 +11,7 @@ import { GiGuitarHead } from "react-icons/gi";
 import { MdOutlineLibraryMusic } from "react-icons/md";
 
 import { BiMessageSquareDots } from "react-icons/bi";
+import { mainMenuWrapperPosition } from "@/styles/shared/componentsStyles";
 
 export const MessagesMenu: React.FC = () => {
   const {
@@ -34,11 +35,8 @@ export const MessagesMenu: React.FC = () => {
       {isOpenMessagesMenu && (
         <MenuWrapper
           ref={menuRefMessages}
-          style={{
-            top: -10,
-            left: -150,
-            zIndex: 10,
-          }}
+          className={mainMenuWrapperPosition}
+
         >
           <Menu width="w-48" className="flex flex-col relative">
             <MenuHeader title="Mensagens" />

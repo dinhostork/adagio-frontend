@@ -9,6 +9,7 @@ import { IoIosLogOut } from "react-icons/io";
 import { MenuItemWrapper } from "@/components/atoms/MenuItemWrapper";
 import { MenuItem } from "@/components/atoms/MenuItem";
 import { MenuHeader } from "@/components/atoms/MenuHeader";
+import { avatarMenuWrapperPosition, menuWidth } from "./styles";
 
 export const Avatar: React.FC = () => {
   const { isOpen, toggle, menuRef } = useComponentsMenu();
@@ -29,12 +30,9 @@ export const Avatar: React.FC = () => {
       {isOpen && (
         <MenuWrapper
           ref={menuRef}
-          style={{
-            right: 50,
-            zIndex: 10,
-          }}
+          className={avatarMenuWrapperPosition}
         >
-          <Menu width="w-64">
+          <Menu width={menuWidth}>
             <MenuHeader title="Dinho Stork" />
 
             <MenuItemWrapper>

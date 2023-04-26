@@ -5,6 +5,6 @@ export const ItemContainer = tw.div`
 flex
 flex-col
 gap-6
-mt-8
+mt-6
 `;
 

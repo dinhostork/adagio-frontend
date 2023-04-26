@@ -1,7 +1,7 @@
 import AvatarImg from "@/components/atoms/Avatar";
 import { Menu } from "@/components/atoms/Menu";
 import { useComponentsMenu } from "@/utils/componentsToggleMenu";
-import { MenuWrapper } from "./styles";
+import MenuWrapper from "@/components/atoms/MenuWrapper";
 import { IoSettingsOutline } from "react-icons/io5";
 import { BsPerson } from "react-icons/bs";
 import { BiLockAlt } from "react-icons/bi";
@@ -27,7 +27,13 @@ export const Avatar: React.FC = () => {
       />
 
       {isOpen && (
-        <MenuWrapper ref={menuRef}>
+        <MenuWrapper
+          ref={menuRef}
+          style={{
+            right: 50,
+            zIndex: 10,
+          }}
+        >
           <Menu width="w-64">
             <MenuHeader userName="Dinho Stork" />
 

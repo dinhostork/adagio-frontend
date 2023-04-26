@@ -15,26 +15,26 @@ import { BiMessageSquareDots } from "react-icons/bi";
 
 export const MessagesMenu: React.FC = () => {
   const {
-    isOpen: isOpenMenuMensagens,
-    toggle: toggleMenuMensagens,
-    menuRef: menuRefMensagens,
+    isOpen: isOpenMessagesMenu,
+    toggle: toggleMessagesMenu,
+    menuRef: menuRefMessages,
   } = useComponentsMenu();
 
   const handleMessagesClick = useCallback(() => {
-    toggleMenuMensagens();
-  }, [toggleMenuMensagens]);
+    toggleMessagesMenu();
+  }, [toggleMessagesMenu]);
 
   return (
     <MenuItem href="#">
       <BiMessageSquareDots
         size={24}
-        className={isOpenMenuMensagens ? "z-20 text-white" : "z-10"}
+        className={isOpenMessagesMenu ? "z-20 text-white" : "z-10"}
         onClick={handleMessagesClick}
       />
 
-      {isOpenMenuMensagens && (
+      {isOpenMessagesMenu && (
         <MenuWrapper
-          ref={menuRefMensagens}
+          ref={menuRefMessages}
           style={{
             top: -10,
             left: -150,

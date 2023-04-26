@@ -1,6 +1,9 @@
+import styled from "styled-components";
 import tw from "tailwind-styled-components";
+import { TopbarProps } from "./types";
+import { Avatar } from "@/components/molecules/AvatarMenu";
 
-export const Topbar = tw.header`
+export const TopbarComponent = tw.header`
     flex
     justify-between
     items-center
@@ -12,3 +15,10 @@ export const Topbar = tw.header`
     py-4
     text-white
 `;
+
+export const Topbar: React.FC<TopbarProps> = ({ children }) => {
+  return <TopbarComponent>
+    {children}
+    <Avatar />
+  </TopbarComponent>;
+};

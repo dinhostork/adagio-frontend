@@ -1,4 +1,4 @@
-import Nav from '@/components/atoms/BrowserMenu'
+import Nav from '@/components/molecules/BrowserMenu'
 import { Topbar } from '@/components/organisms/Topbar'
 import { Inter } from 'next/font/google'
 

@@ -13,13 +13,9 @@ import { MdOutlineLibraryMusic } from "react-icons/md";
 import { BsBroadcastPin } from "react-icons/bs";
 import { GiGuitarHead } from "react-icons/gi";
 import { CreateMenu } from "../CreateMenu";
+import { SolicitationsMenu } from "../SolicitationsMenu";
 
 export const TopbarMainMenu: React.FC = () => {
-  const {
-    isOpen: isOpenMenuSolicitacoes,
-    toggle: toggleMenuSolicitacoes,
-    menuRef: menuRefSolicitacoes,
-  } = useComponentsMenu();
   const {
     isOpen: isOpenMenuMensagens,
     toggle: toggleMenuMensagens,
@@ -30,10 +26,6 @@ export const TopbarMainMenu: React.FC = () => {
     toggle: toggleMenuNotificacoes,
     menuRef: menuRefNotificacoes,
   } = useComponentsMenu();
-
-  const handleSolicitationsClick = useCallback(() => {
-    toggleMenuSolicitacoes();
-  }, [toggleMenuSolicitacoes]);
 
   const handleMessagesClick = useCallback(() => {
     toggleMenuMensagens();
@@ -46,47 +38,7 @@ export const TopbarMainMenu: React.FC = () => {
   return (
     <div className="flex flex-row w-80 h-12 items-center justify-between text-gray-dark relative gap-0">
       <CreateMenu />
-
-      <MenuItem href="#" menuRef={menuRefSolicitacoes} className="relative">
-        <BiGroup
-          size={24}
-          className={isOpenMenuSolicitacoes ? "z-20" : "z-10"}
-          onClick={handleSolicitationsClick}
-        />
-        {isOpenMenuSolicitacoes && (
-          <MenuWrapper
-            ref={menuRefSolicitacoes}
-            style={{
-              top: -10,
-              left: -150,
-              zIndex: 10,
-            }}
-          >
-            <Menu width="w-48" className="flex flex-col relative">
-              <MenuHeader title="Solicitações" />
-              <MenuItemWrapper>
-                <MenuItem href="#">
-                  <MdOutlineLibraryMusic size={24} />
-                  <span className="ml-4">Banda</span>
-                </MenuItem>
-                <MenuItem href="#">
-                  <BiCalendarPlus size={24} />
-                  <span className="ml-4">Evento</span>
-                </MenuItem>
-                <MenuItem href="#">
-                  <BsBroadcastPin size={24} />
-                  <span className="ml-4">Live</span>
-                </MenuItem>
-                <MenuItem href="#">
-                  <GiGuitarHead size={24} />
-                  <span className="ml-4">Habilidade</span>
-                </MenuItem>
-              </MenuItemWrapper>
-            </Menu>
-          </MenuWrapper>
-        )}
-      </MenuItem>
-
+      <SolicitationsMenu />
       <MenuItem href="#">
         <BiMessageSquareDots
           size={24}

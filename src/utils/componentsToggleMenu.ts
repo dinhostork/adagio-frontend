@@ -16,7 +16,6 @@ export const useComponentsMenu = () => {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      console.log('outside isOpen: ', isOpen)
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         toggle(false);
       }

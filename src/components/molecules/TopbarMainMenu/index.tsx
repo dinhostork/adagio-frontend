@@ -14,22 +14,17 @@ import { BsBroadcastPin } from "react-icons/bs";
 import { GiGuitarHead } from "react-icons/gi";
 import { CreateMenu } from "../CreateMenu";
 import { SolicitationsMenu } from "../SolicitationsMenu";
+import { MessagesMenu } from "../MessagesMenu";
 
 export const TopbarMainMenu: React.FC = () => {
-  const {
-    isOpen: isOpenMenuMensagens,
-    toggle: toggleMenuMensagens,
-    menuRef: menuRefMensagens,
-  } = useComponentsMenu();
+  
   const {
     isOpen: isOpenMenuNotificacoes,
     toggle: toggleMenuNotificacoes,
     menuRef: menuRefNotificacoes,
   } = useComponentsMenu();
 
-  const handleMessagesClick = useCallback(() => {
-    toggleMenuMensagens();
-  }, [toggleMenuMensagens]);
+
 
   const handleNotificationsClick = useCallback(() => {
     toggleMenuNotificacoes();
@@ -39,46 +34,7 @@ export const TopbarMainMenu: React.FC = () => {
     <div className="flex flex-row w-80 h-12 items-center justify-between text-gray-dark relative gap-0">
       <CreateMenu />
       <SolicitationsMenu />
-      <MenuItem href="#">
-        <BiMessageSquareDots
-          size={24}
-          className={isOpenMenuMensagens ? "z-20" : "z-10"}
-          onClick={handleMessagesClick}
-        />
-
-        {isOpenMenuMensagens && (
-          <MenuWrapper
-            ref={menuRefMensagens}
-            style={{
-              top: -10,
-              left: -150,
-              zIndex: 10,
-            }}
-          >
-            <Menu width="w-48" className="flex flex-col relative">
-              <MenuHeader title="Mensagens" />
-              <MenuItemWrapper>
-                <MenuItem href="#">
-                  <MdOutlineLibraryMusic size={24} />
-                  <span className="ml-4">Banda</span>
-                </MenuItem>
-                <MenuItem href="#">
-                  <BiCalendarPlus size={24} />
-                  <span className="ml-4">Evento</span>
-                </MenuItem>
-                <MenuItem href="#">
-                  <BsBroadcastPin size={24} />
-                  <span className="ml-4">Live</span>
-                </MenuItem>
-                <MenuItem href="#">
-                  <GiGuitarHead size={24} />
-                  <span className="ml-4">Habilidade</span>
-                </MenuItem>
-              </MenuItemWrapper>
-            </Menu>
-          </MenuWrapper>
-        )}
-      </MenuItem>
+      <MessagesMenu />
 
       <MenuItem href="#">
         {!isOpenMenuNotificacoes && <IconCounter count={4} />}

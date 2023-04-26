@@ -5,7 +5,6 @@ import { MenuItemWrapper } from "@/components/atoms/MenuItemWrapper";
 import MenuWrapper from "@/components/atoms/MenuWrapper";
 import { useComponentsMenu } from "@/utils/componentsToggleMenu";
 import { useCallback } from "react";
-import { AiOutlinePlus } from "react-icons/ai";
 import { BiCalendarPlus } from "react-icons/bi";
 import { BsBroadcastPin } from "react-icons/bs";
 import { GiGuitarHead } from "react-icons/gi";

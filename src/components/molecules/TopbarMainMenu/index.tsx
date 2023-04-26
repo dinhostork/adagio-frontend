@@ -12,13 +12,9 @@ import { MenuHeader } from "@/components/atoms/MenuHeader";
 import { MdOutlineLibraryMusic } from "react-icons/md";
 import { BsBroadcastPin } from "react-icons/bs";
 import { GiGuitarHead } from "react-icons/gi";
+import { CreateMenu } from "../CreateMenu";
 
 export const TopbarMainMenu: React.FC = () => {
-  const {
-    isOpen: isOpenMenuCriacao,
-    toggle: toggleMenuCriacao,
-    menuRef: menuRefCriacao,
-  } = useComponentsMenu();
   const {
     isOpen: isOpenMenuSolicitacoes,
     toggle: toggleMenuSolicitacoes,
@@ -35,10 +31,6 @@ export const TopbarMainMenu: React.FC = () => {
     menuRef: menuRefNotificacoes,
   } = useComponentsMenu();
 
-  const handleCreateClick = useCallback(() => {
-    toggleMenuCriacao();
-  }, [toggleMenuCriacao]);
-
   const handleSolicitationsClick = useCallback(() => {
     toggleMenuSolicitacoes();
   }, [toggleMenuSolicitacoes]);
@@ -51,48 +43,9 @@ export const TopbarMainMenu: React.FC = () => {
     toggleMenuNotificacoes();
   }, [toggleMenuNotificacoes]);
 
-  console.log(isOpenMenuNotificacoes);
   return (
     <div className="flex flex-row w-80 h-12 items-center justify-between text-gray-dark relative gap-0">
-      <MenuItem href="#" menuRef={menuRefCriacao}>
-        <AiOutlinePlus
-          size={24}
-          onClick={handleCreateClick}
-          className={isOpenMenuCriacao ? "z-20 text-white" : "z-10"}
-        />
-        {isOpenMenuCriacao && (
-          <MenuWrapper
-            ref={menuRefCriacao}
-            style={{
-              top: -10,
-              left: -140,
-              zIndex: 10,
-            }}
-          >
-            <Menu width="w-48" className="flex flex-col">
-              <MenuHeader userName="Criar" />
-              <MenuItemWrapper>
-                <MenuItem href="#">
-                  <MdOutlineLibraryMusic size={24} />
-                  <span className="ml-4">Banda</span>
-                </MenuItem>
-                <MenuItem href="#">
-                  <BiCalendarPlus size={24} />
-                  <span className="ml-4">Evento</span>
-                </MenuItem>
-                <MenuItem href="#">
-                  <BsBroadcastPin size={24} />
-                  <span className="ml-4">Live</span>
-                </MenuItem>
-                <MenuItem href="#">
-                  <GiGuitarHead size={24} />
-                  <span className="ml-4">Habilidade</span>
-                </MenuItem>
-              </MenuItemWrapper>
-            </Menu>
-          </MenuWrapper>
-        )}
-      </MenuItem>
+      <CreateMenu />
 
       <MenuItem href="#" menuRef={menuRefSolicitacoes} className="relative">
         <BiGroup

@@ -1,8 +1,11 @@
-import styled from "styled-components";
 import tw from "tailwind-styled-components";
 import { TopbarProps } from "./types";
 import { Avatar } from "@/components/molecules/AvatarMenu";
-import { TopbarMainMenu } from "@/components/molecules/TopbarMainMenu";
+import { CreateMenu } from "@/components/molecules/CreateMenu";
+import { SolicitationsMenu } from "@/components/molecules/SolicitationsMenu";
+import { MessagesMenu } from "@/components/molecules/MessagesMenu";
+import { NotificationsMenu } from "@/components/molecules/NotificationsMenu";
+import { mainMenuBlock } from "./styles";
 
 export const TopbarComponent = tw.header`
     flex
@@ -18,9 +21,16 @@ export const TopbarComponent = tw.header`
 `;
 
 export const Topbar: React.FC<TopbarProps> = ({ children }) => {
-  return <TopbarComponent>
-    {children}
-    <TopbarMainMenu />
-    <Avatar />
-  </TopbarComponent>;
+  return (
+    <TopbarComponent>
+      {children}
+      <div className={mainMenuBlock}>
+        <CreateMenu />
+        <SolicitationsMenu />
+        <MessagesMenu />
+        <NotificationsMenu />
+      </div>
+      <Avatar />
+    </TopbarComponent>
+  );
 };

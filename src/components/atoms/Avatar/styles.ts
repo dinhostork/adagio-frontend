@@ -6,4 +6,5 @@ export const AvatarImg = tw.img`
     rounded-full
     object-cover
     cursor-pointer
+    z-20
 `;

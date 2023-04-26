@@ -35,7 +35,7 @@ export const Avatar: React.FC = () => {
           }}
         >
           <Menu width="w-64">
-            <MenuHeader userName="Dinho Stork" />
+            <MenuHeader title="Dinho Stork" />
 
             <MenuItemWrapper>
               <MenuItem href="/profile">

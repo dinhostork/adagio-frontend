@@ -63,7 +63,7 @@ export const TopbarMainMenu: React.FC = () => {
             }}
           >
             <Menu width="w-48" className="flex flex-col relative">
-              <MenuHeader userName="Solicitações" />
+              <MenuHeader title="Solicitações" />
               <MenuItemWrapper>
                 <MenuItem href="#">
                   <MdOutlineLibraryMusic size={24} />
@@ -104,7 +104,7 @@ export const TopbarMainMenu: React.FC = () => {
             }}
           >
             <Menu width="w-48" className="flex flex-col relative">
-              <MenuHeader userName="Mensagens" />
+              <MenuHeader title="Mensagens" />
               <MenuItemWrapper>
                 <MenuItem href="#">
                   <MdOutlineLibraryMusic size={24} />
@@ -145,7 +145,7 @@ export const TopbarMainMenu: React.FC = () => {
             }}
           >
             <Menu width="w-48" className="flex flex-col relative">
-              <MenuHeader userName="Notificações" />
+              <MenuHeader title="Notificações" />
               <MenuItemWrapper>
                 <MenuItem href="#">
                   <MdOutlineLibraryMusic size={24} />

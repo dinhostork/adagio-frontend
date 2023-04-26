@@ -13,25 +13,25 @@ import { MdOutlineLibraryMusic } from "react-icons/md";
 
 export const CreateMenu: React.FC = () => {
     const {
-        isOpen: isOpenMenuCriacao,
-        toggle: toggleMenuCriacao,
-        menuRef: menuRefCriacao,
+        isOpen: isOpenCreateMenu,
+        toggle: toggleCreateMenu,
+        menuRef: menuRefCreate,
       } = useComponentsMenu();
 
       const handleCreateClick = useCallback(() => {
-        toggleMenuCriacao();
-      }, [toggleMenuCriacao]);
+        toggleCreateMenu();
+      }, [toggleCreateMenu]);
     
     return(
-        <MenuItem href="#" menuRef={menuRefCriacao}>
+        <MenuItem href="#" menuRef={menuRefCreate}>
         <AiOutlinePlus
           size={24}
           onClick={handleCreateClick}
-          className={isOpenMenuCriacao ? "z-20 text-white" : "z-10"}
+          className={isOpenCreateMenu ? "z-20 text-white" : "z-10"}
         />
-        {isOpenMenuCriacao && (
+        {isOpenCreateMenu && (
           <MenuWrapper
-            ref={menuRefCriacao}
+            ref={menuRefCreate}
             style={{
               top: -10,
               left: -140,
@@ -39,7 +39,7 @@ export const CreateMenu: React.FC = () => {
             }}
           >
             <Menu width="w-48" className="flex flex-col">
-              <MenuHeader userName="Criar" />
+              <MenuHeader title="Criar" />
               <MenuItemWrapper>
                 <MenuItem href="#">
                   <MdOutlineLibraryMusic size={24} />

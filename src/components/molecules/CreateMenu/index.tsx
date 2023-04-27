@@ -14,7 +14,7 @@ import { BiCalendarPlus } from "react-icons/bi";
 import { BsBroadcastPin } from "react-icons/bs";
 import { GiGuitarHead } from "react-icons/gi";
 import { MdOutlineLibraryMusic } from "react-icons/md";
-import { menuStyle } from "./styles";
+import { menuStyle, textSpacing } from "./styles";
 
 export const CreateMenu: React.FC = () => {
   const {
@@ -41,19 +41,19 @@ export const CreateMenu: React.FC = () => {
             <MenuItemWrapper>
               <MenuItem href="#">
                 <MdOutlineLibraryMusic size={24} />
-                <span className="ml-4">Banda</span>
+                <span className={textSpacing}>Banda</span>
               </MenuItem>
               <MenuItem href="#">
                 <BiCalendarPlus size={24} />
-                <span className="ml-4">Evento</span>
+                <span className={textSpacing}>Evento</span>
               </MenuItem>
               <MenuItem href="#">
                 <BsBroadcastPin size={24} />
-                <span className="ml-4">Live</span>
+                <span className={textSpacing}>Live</span>
               </MenuItem>
               <MenuItem href="#">
                 <GiGuitarHead size={24} />
-                <span className="ml-4">Habilidade</span>
+                <span className={textSpacing}>Habilidade</span>
               </MenuItem>
             </MenuItemWrapper>
           </Menu>

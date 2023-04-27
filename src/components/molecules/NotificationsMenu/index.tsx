@@ -4,6 +4,7 @@ import { MenuHeader } from "@/components/atoms/MenuHeader";
 import { MenuItem } from "@/components/atoms/MenuItem";
 import { MenuItemWrapper } from "@/components/atoms/MenuItemWrapper";
 import MenuWrapper from "@/components/atoms/MenuWrapper";
+import { NotificationBlock } from "@/components/atoms/NotificationBlock";
 import { mainMenuWrapperPosition } from "@/styles/shared/componentsStyles";
 import { useComponentsMenu } from "@/utils/componentsToggleMenu";
 import { useCallback } from "react";
@@ -38,27 +39,39 @@ export const NotificationsMenu: React.FC = () => {
           <MenuWrapper
             ref={menuRefNotifications}
             className={mainMenuWrapperPosition}
-
+            style={
+              {
+                left: "calc(100% - 15rem)",
+              }
+            }
           >
-            <Menu width="w-48" className="flex flex-col relative">
+            <Menu width="w-64" className="flex flex-col relative">
               <MenuHeader title="Notificações" />
               <MenuItemWrapper>
-                <MenuItem href="#">
-                  <MdOutlineLibraryMusic size={24} />
-                  <span className="ml-4">Banda</span>
-                </MenuItem>
-                <MenuItem href="#">
-                  <BiCalendarPlus size={24} />
-                  <span className="ml-4">Evento</span>
-                </MenuItem>
-                <MenuItem href="#">
-                  <BsBroadcastPin size={24} />
-                  <span className="ml-4">Live</span>
-                </MenuItem>
-                <MenuItem href="#">
-                  <GiGuitarHead size={24} />
-                  <span className="ml-4">Habilidade</span>
-                </MenuItem>
+                <NotificationBlock
+                  title="Solicitações de Amizade"
+                  text="Dinho aceitou sua solicitação de amizade"
+                  picture="https://avatars.githubusercontent.com/u/5059050"
+                  date="há 2 dias"
+                />
+                <NotificationBlock
+                  title="Bandas"
+                  text="Dinho te enviou um convite para a banda 'Stork'"
+                  picture="https://avatars.githubusercontent.com/u/5059050"
+                  date="há 2 dias"
+                />
+                <NotificationBlock
+                  title="Comentários"
+                  text="Dinho comentou em seu post 'O que é música?'"
+                  picture="https://avatars.githubusercontent.com/u/5059050"
+                  date="há 2 dias"
+                />
+                <NotificationBlock
+                  title="Curtidas"
+                  text="Dinho curtiu seu post 'O que é música?'"
+                  picture="https://avatars.githubusercontent.com/u/5059050"
+                  date="há 2 dias"
+                />
               </MenuItemWrapper>
             </Menu>
           </MenuWrapper>

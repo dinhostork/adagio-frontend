@@ -9,6 +9,7 @@ import { largeMenu, largeMenuWrapperPosition } from "@/styles/shared/componentsS
 import { useComponentsMenu } from "@/utils/componentsToggleMenu";
 import { useCallback } from "react";
 import { AiOutlineBell } from "react-icons/ai";
+import { menuStyle } from "./style";
 
 
 export const NotificationsMenu: React.FC = () => {
@@ -37,7 +38,7 @@ export const NotificationsMenu: React.FC = () => {
             ref={menuRefNotifications}
             className={largeMenuWrapperPosition}
           >
-            <Menu width={largeMenu} className="flex flex-col relative">
+            <Menu width={largeMenu} className={menuStyle}>
               <MenuHeader title="Notificações" />
               <MenuItemWrapper>
                 <NotificationBlock

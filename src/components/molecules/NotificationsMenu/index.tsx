@@ -26,7 +26,7 @@ export const NotificationsMenu: React.FC = () => {
       }, [toggleNotificationsMenu]);
 
     return(
-        <MenuItem href="#">
+        <MenuItem >
         {!isOpenNotificationsMenu && <IconCounter count={4} />}
         <AiOutlineBell
           size={24}

@@ -3,7 +3,10 @@ import { MenuHeader } from "@/components/atoms/MenuHeader";
 import { MenuItem } from "@/components/atoms/MenuItem";
 import { MenuItemWrapper } from "@/components/atoms/MenuItemWrapper";
 import MenuWrapper from "@/components/atoms/MenuWrapper";
-import {  mainMenuWrapperPosition, smallMenu } from "@/styles/shared/componentsStyles";
+import {
+  smallMenu,
+  smallMenuWrapperPosition,
+} from "@/styles/shared/componentsStyles";
 import { useComponentsMenu } from "@/utils/componentsToggleMenu";
 import { useCallback } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
@@ -13,51 +16,48 @@ import { GiGuitarHead } from "react-icons/gi";
 import { MdOutlineLibraryMusic } from "react-icons/md";
 
 export const CreateMenu: React.FC = () => {
-    const {
-        isOpen: isOpenCreateMenu,
-        toggle: toggleCreateMenu,
-        menuRef: menuRefCreate,
-      } = useComponentsMenu();
+  const {
+    isOpen: isOpenCreateMenu,
+    toggle: toggleCreateMenu,
+    menuRef: menuRefCreate,
+  } = useComponentsMenu();
 
-      const handleCreateClick = useCallback(() => {
-        toggleCreateMenu();
-      }, [toggleCreateMenu]);
-    
-    return(
-        <MenuItem href="#" menuRef={menuRefCreate}>
-        <AiOutlinePlus
-          size={24}
-          onClick={handleCreateClick}
-          className={isOpenCreateMenu ? "z-20 text-white" : "z-10"}
-        />
-        {isOpenCreateMenu && (
-          <MenuWrapper
-            ref={menuRefCreate}
-            className={mainMenuWrapperPosition}
-          >
-            <Menu width={smallMenu} className="flex flex-col">
-              <MenuHeader title="Criar" />
-              <MenuItemWrapper>
-                <MenuItem href="#">
-                  <MdOutlineLibraryMusic size={24} />
-                  <span className="ml-4">Banda</span>
-                </MenuItem>
-                <MenuItem href="#">
-                  <BiCalendarPlus size={24} />
-                  <span className="ml-4">Evento</span>
-                </MenuItem>
-                <MenuItem href="#">
-                  <BsBroadcastPin size={24} />
-                  <span className="ml-4">Live</span>
-                </MenuItem>
-                <MenuItem href="#">
-                  <GiGuitarHead size={24} />
-                  <span className="ml-4">Habilidade</span>
-                </MenuItem>
-              </MenuItemWrapper>
-            </Menu>
-          </MenuWrapper>
-        )}
-      </MenuItem>
-    )
-}
+  const handleCreateClick = useCallback(() => {
+    toggleCreateMenu();
+  }, [toggleCreateMenu]);
+
+  return (
+    <MenuItem href="#" menuRef={menuRefCreate}>
+      <AiOutlinePlus
+        size={24}
+        onClick={handleCreateClick}
+        className={isOpenCreateMenu ? "z-20 text-white" : "z-10"}
+      />
+      {isOpenCreateMenu && (
+        <MenuWrapper ref={menuRefCreate} className={smallMenuWrapperPosition}>
+          <Menu width={smallMenu} className="flex flex-col">
+            <MenuHeader title="Criar" />
+            <MenuItemWrapper>
+              <MenuItem href="#">
+                <MdOutlineLibraryMusic size={24} />
+                <span className="ml-4">Banda</span>
+              </MenuItem>
+              <MenuItem href="#">
+                <BiCalendarPlus size={24} />
+                <span className="ml-4">Evento</span>
+              </MenuItem>
+              <MenuItem href="#">
+                <BsBroadcastPin size={24} />
+                <span className="ml-4">Live</span>
+              </MenuItem>
+              <MenuItem href="#">
+                <GiGuitarHead size={24} />
+                <span className="ml-4">Habilidade</span>
+              </MenuItem>
+            </MenuItemWrapper>
+          </Menu>
+        </MenuWrapper>
+      )}
+    </MenuItem>
+  );
+};

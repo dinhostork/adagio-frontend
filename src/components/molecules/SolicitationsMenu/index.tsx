@@ -5,7 +5,7 @@ import { MenuItem } from "@/components/atoms/MenuItem";
 import { MenuItemWrapper } from "@/components/atoms/MenuItemWrapper";
 import MenuWrapper from "@/components/atoms/MenuWrapper";
 import { UserWithTextBlock } from "@/components/atoms/UserWithTextBlock";
-import { mainMenuWrapperPosition } from "@/styles/shared/componentsStyles";
+import { largeMenu, largeMenuWrapperPosition } from "@/styles/shared/componentsStyles";
 import { useComponentsMenu } from "@/utils/componentsToggleMenu";
 import { useCallback } from "react";
 import { BiCalendarPlus, BiGroup } from "react-icons/bi";
@@ -34,14 +34,10 @@ export const SolicitationsMenu: React.FC = () => {
       {isOpenMenuSolicitacoes && (
         <MenuWrapper
           ref={menuRefSolicitacoes}
-          className={mainMenuWrapperPosition}
-          style={
-            {
-              left: "calc(100% - 15rem)",
-            }
-          }
+          className={largeMenuWrapperPosition}
+          
         >
-          <Menu width="w-64" className="flex flex-col relative">
+          <Menu width={largeMenu} className="flex flex-col relative">
             <MenuHeader title="Solicitações" />
             <MenuItemWrapper>
             <div className="flex flex-row w-full">

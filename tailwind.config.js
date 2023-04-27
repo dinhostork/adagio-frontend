@@ -23,6 +23,9 @@ module.exports = {
       },
       red:{
         light: '#F45B49'
+      },
+      green: {
+        light: '#229C62',
       }
     },
     extend: {

@@ -1,7 +1,7 @@
 export const smallMenuWrapperPosition = `
     -top-4
     z-10
-    -right-2
+    -right-8
 `
 
 export const largeMenuWrapperPosition = `

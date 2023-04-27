@@ -14,6 +14,7 @@ import { BiCalendarPlus } from "react-icons/bi";
 import { BsBroadcastPin } from "react-icons/bs";
 import { GiGuitarHead } from "react-icons/gi";
 import { MdOutlineLibraryMusic } from "react-icons/md";
+import { menuStyle } from "./styles";
 
 export const CreateMenu: React.FC = () => {
   const {
@@ -35,7 +36,7 @@ export const CreateMenu: React.FC = () => {
       />
       {isOpenCreateMenu && (
         <MenuWrapper ref={menuRefCreate} className={smallMenuWrapperPosition}>
-          <Menu width={smallMenu} className="flex flex-col">
+          <Menu width={smallMenu} className={menuStyle}>
             <MenuHeader title="Criar" />
             <MenuItemWrapper>
               <MenuItem href="#">

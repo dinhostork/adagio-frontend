@@ -9,7 +9,7 @@ import { largeMenu, largeMenuWrapperPosition } from "@/styles/shared/componentsS
 import { useComponentsMenu } from "@/utils/componentsToggleMenu";
 import { useCallback } from "react";
 import { AiOutlineBell } from "react-icons/ai";
-import { menuStyle } from "./style";
+import { menuStyle } from "./styles";
 
 
 export const NotificationsMenu: React.FC = () => {

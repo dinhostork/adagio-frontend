@@ -5,13 +5,14 @@ import { MenuItem } from "@/components/atoms/MenuItem";
 import { MenuItemWrapper } from "@/components/atoms/MenuItemWrapper";
 import MenuWrapper from "@/components/atoms/MenuWrapper";
 import { UserWithTextBlock } from "@/components/atoms/UserWithTextBlock";
-import { largeMenu, largeMenuWrapperPosition } from "@/styles/shared/componentsStyles";
+import {
+  largeMenu,
+  largeMenuWrapperPosition,
+} from "@/styles/shared/componentsStyles";
 import { useComponentsMenu } from "@/utils/componentsToggleMenu";
 import { useCallback } from "react";
-import { BiCalendarPlus, BiGroup } from "react-icons/bi";
-import { BsBroadcastPin } from "react-icons/bs";
-import { GiGuitarHead } from "react-icons/gi";
-import { MdOutlineLibraryMusic } from "react-icons/md";
+import { menuItemStyle, menuStyle, wrapperStyle } from "./styles";
+import { BiGroup } from "react-icons/bi";
 
 export const SolicitationsMenu: React.FC = () => {
   const {
@@ -25,7 +26,7 @@ export const SolicitationsMenu: React.FC = () => {
   }, [toggleMenuSolicitacoes]);
 
   return (
-    <MenuItem href="#" menuRef={menuRefSolicitacoes} className="relative">
+    <MenuItem href="#" menuRef={menuRefSolicitacoes} className={menuItemStyle}>
       <BiGroup
         size={24}
         className={isOpenMenuSolicitacoes ? "z-20 text-white" : "z-10"}
@@ -35,41 +36,40 @@ export const SolicitationsMenu: React.FC = () => {
         <MenuWrapper
           ref={menuRefSolicitacoes}
           className={largeMenuWrapperPosition}
-          
         >
-          <Menu width={largeMenu} className="flex flex-col relative">
+          <Menu width={largeMenu} className={menuStyle}>
             <MenuHeader title="Solicitações" />
             <MenuItemWrapper>
-            <div className="flex flex-row w-full">
-              <UserWithTextBlock userName="Dinho Stork" userProfPic="t">
-                <span >@dinhostork</span>
-              </UserWithTextBlock>
-              <FriendRequestActions />
-             </div>
-             <div className="flex flex-row w-full">
-              <UserWithTextBlock userName="Dinho Stork" userProfPic="t">
-                <span >@dinhostork</span>
-              </UserWithTextBlock>
-              <FriendRequestActions />
-             </div>
-             <div className="flex flex-row w-full">
-              <UserWithTextBlock userName="Dinho Stork" userProfPic="t">
-                <span >@dinhostork</span>
-              </UserWithTextBlock>
-              <FriendRequestActions />
-             </div>
-             <div className="flex flex-row w-full">
-              <UserWithTextBlock userName="Dinho Stork" userProfPic="t">
-                <span >@dinhostork</span>
-              </UserWithTextBlock>
-              <FriendRequestActions />
-             </div>
-             <div className="flex flex-row w-full">
-              <UserWithTextBlock userName="Dinho Stork" userProfPic="t">
-                <span >@dinhostork</span>
-              </UserWithTextBlock>
-              <FriendRequestActions />
-             </div>
+              <div className={wrapperStyle}>
+                <UserWithTextBlock userName="Dinho Stork" userProfPic="t">
+                  <span>@dinhostork</span>
+                </UserWithTextBlock>
+                <FriendRequestActions />
+              </div>
+              <div className={wrapperStyle}>
+                <UserWithTextBlock userName="Dinho Stork" userProfPic="t">
+                  <span>@dinhostork</span>
+                </UserWithTextBlock>
+                <FriendRequestActions />
+              </div>
+              <div className={wrapperStyle}>
+                <UserWithTextBlock userName="Dinho Stork" userProfPic="t">
+                  <span>@dinhostork</span>
+                </UserWithTextBlock>
+                <FriendRequestActions />
+              </div>
+              <div className={wrapperStyle}>
+                <UserWithTextBlock userName="Dinho Stork" userProfPic="t">
+                  <span>@dinhostork</span>
+                </UserWithTextBlock>
+                <FriendRequestActions />
+              </div>
+              <div className={wrapperStyle}>
+                <UserWithTextBlock userName="Dinho Stork" userProfPic="t">
+                  <span>@dinhostork</span>
+                </UserWithTextBlock>
+                <FriendRequestActions />
+              </div>
             </MenuItemWrapper>
           </Menu>
         </MenuWrapper>

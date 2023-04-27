@@ -7,6 +7,7 @@ export const UserWithTextBlock: React.FC<UserWithTextBlockProps> = ({
   userProfPic,
 }) => {
   return (
+    
     <div className="flex flex-row h-12 flex-grow relative">
       <img
         src="https://avatars.githubusercontent.com/u/5059050"

@@ -6,3 +6,6 @@ export const avatarMenuWrapperPosition = `
 export const menuWidth = `
     w-64
 `
+export const itemSpacing = `
+    mr-4
+`

@@ -28,7 +28,7 @@ export const CreateMenu: React.FC = () => {
   }, [toggleCreateMenu]);
 
   return (
-    <MenuItem href="#" menuRef={menuRefCreate}>
+    <MenuItem menuRef={menuRefCreate}>
       <AiOutlinePlus
         size={24}
         onClick={handleCreateClick}
@@ -39,19 +39,19 @@ export const CreateMenu: React.FC = () => {
           <Menu width={smallMenu} className={menuStyle}>
             <MenuHeader title="Criar" />
             <MenuItemWrapper>
-              <MenuItem href="#">
+              <MenuItem>
                 <MdOutlineLibraryMusic size={24} />
                 <span className={textSpacing}>Banda</span>
               </MenuItem>
-              <MenuItem href="#">
+              <MenuItem>
                 <BiCalendarPlus size={24} />
                 <span className={textSpacing}>Evento</span>
               </MenuItem>
-              <MenuItem href="#">
+              <MenuItem>
                 <BsBroadcastPin size={24} />
                 <span className={textSpacing}>Live</span>
               </MenuItem>
-              <MenuItem href="#">
+              <MenuItem>
                 <GiGuitarHead size={24} />
                 <span className={textSpacing}>Habilidade</span>
               </MenuItem>

@@ -4,7 +4,6 @@ export const useComponentsMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = useCallback((value?: boolean) => {
-    console.log("toggle")
     setIsOpen((prevIsOpen) => {
       if (value != null) {
         return value;

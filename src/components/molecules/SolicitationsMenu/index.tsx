@@ -26,7 +26,7 @@ export const SolicitationsMenu: React.FC = () => {
   }, [toggleMenuSolicitacoes]);
 
   return (
-    <MenuItem href="#" menuRef={menuRefSolicitacoes} className={menuItemStyle}>
+    <MenuItem  menuRef={menuRefSolicitacoes} className={menuItemStyle}>
       <BiGroup
         size={24}
         className={isOpenMenuSolicitacoes ? "z-20 text-white" : "z-10"}

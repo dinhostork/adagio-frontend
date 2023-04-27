@@ -22,7 +22,7 @@ export const MessagesMenu: React.FC = () => {
   }, [toggleMessagesMenu]);
 
   return (
-    <MenuItem href="#">
+    <MenuItem >
       <BiMessageSquareDots
         size={24}
         className={isOpenMessagesMenu ? "z-20 text-white" : "z-10"}

@@ -50,6 +50,30 @@ export const SolicitationsMenu: React.FC = () => {
               </UserWithTextBlock>
               <FriendRequestActions />
              </div>
+             <div className="flex flex-row w-full">
+              <UserWithTextBlock userName="Dinho Stork" userProfPic="t">
+                <span >@dinhostork</span>
+              </UserWithTextBlock>
+              <FriendRequestActions />
+             </div>
+             <div className="flex flex-row w-full">
+              <UserWithTextBlock userName="Dinho Stork" userProfPic="t">
+                <span >@dinhostork</span>
+              </UserWithTextBlock>
+              <FriendRequestActions />
+             </div>
+             <div className="flex flex-row w-full">
+              <UserWithTextBlock userName="Dinho Stork" userProfPic="t">
+                <span >@dinhostork</span>
+              </UserWithTextBlock>
+              <FriendRequestActions />
+             </div>
+             <div className="flex flex-row w-full">
+              <UserWithTextBlock userName="Dinho Stork" userProfPic="t">
+                <span >@dinhostork</span>
+              </UserWithTextBlock>
+              <FriendRequestActions />
+             </div>
             </MenuItemWrapper>
           </Menu>
         </MenuWrapper>

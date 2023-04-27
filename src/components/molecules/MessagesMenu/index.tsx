@@ -8,6 +8,7 @@ import { useCallback } from "react";
 import { BiMessageSquareDots } from "react-icons/bi";
 import { largeMenu, largeMenuWrapperPosition } from "@/styles/shared/componentsStyles";
 import { UserWithTextBlock } from "@/components/atoms/UserWithTextBlock";
+import { menuStyle, wrapperMessage } from "./styles";
 
 export const MessagesMenu: React.FC = () => {
   const {
@@ -34,10 +35,10 @@ export const MessagesMenu: React.FC = () => {
           className={largeMenuWrapperPosition}
           
         >
-          <Menu width={largeMenu} className="flex flex-col relative">
+          <Menu width={largeMenu} className={menuStyle}>
             <MenuHeader title="Mensagens" />
             <MenuItemWrapper>
-            <div className="flex flex-row w-full">
+            <div className={wrapperMessage}>
               <UserWithTextBlock userName="Dinho Stork" userProfPic="t">
                 <span className="
                 truncate
@@ -48,7 +49,7 @@ export const MessagesMenu: React.FC = () => {
               </UserWithTextBlock>
               <span className="text-xs text-gray-dark whitespace-nowrap">2 min</span>
              </div>
-             <div className="flex flex-row w-full">
+             <div className={wrapperMessage}>
               <UserWithTextBlock userName="Dinho Stork" userProfPic="t">
                 <span className="
                 truncate
@@ -59,7 +60,7 @@ export const MessagesMenu: React.FC = () => {
               </UserWithTextBlock>
               <span className="text-xs text-gray-dark whitespace-nowrap">2 min</span>
              </div>
-             <div className="flex flex-row w-full">
+             <div className={wrapperMessage}>
               <UserWithTextBlock userName="Dinho Stork" userProfPic="t">
                 <span className="
                 truncate

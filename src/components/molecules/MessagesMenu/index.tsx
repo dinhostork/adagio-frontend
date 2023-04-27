@@ -12,6 +12,7 @@ import { MdOutlineLibraryMusic } from "react-icons/md";
 
 import { BiMessageSquareDots } from "react-icons/bi";
 import { mainMenuWrapperPosition } from "@/styles/shared/componentsStyles";
+import { UserWithTextBlock } from "@/components/atoms/UserWithTextBlock";
 
 export const MessagesMenu: React.FC = () => {
   const {
@@ -36,28 +37,50 @@ export const MessagesMenu: React.FC = () => {
         <MenuWrapper
           ref={menuRefMessages}
           className={mainMenuWrapperPosition}
-
+          style={
+            {
+              left: "calc(100% - 15rem)",
+            }
+          }
         >
-          <Menu width="w-48" className="flex flex-col relative">
+          <Menu width="w-64" className="flex flex-col relative">
             <MenuHeader title="Mensagens" />
             <MenuItemWrapper>
-              <MenuItem href="#">
-                <MdOutlineLibraryMusic size={24} />
-                <span className="ml-4">Banda</span>
-              </MenuItem>
-              <MenuItem href="#">
-                <BiCalendarPlus size={24} />
-                <span className="ml-4">Evento</span>
-              </MenuItem>
-              <MenuItem href="#">
-                <BsBroadcastPin size={24} />
-                <span className="ml-4">Live</span>
-              </MenuItem>
-              <MenuItem href="#">
-                <GiGuitarHead size={24} />
-                <span className="ml-4">Habilidade</span>
-              </MenuItem>
+            <div className="flex flex-row w-full">
+              <UserWithTextBlock userName="Dinho Stork" userProfPic="t">
+                <span className="
+                truncate
+                w-40
+                block
+                text-gray
+                ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, ut, qui explicabo commodi quos ipsa mollitia praesentium enim, numquam aliquam consectetur. Suscipit quos odit magni alias maiores earum illo excepturi?</span>
+              </UserWithTextBlock>
+              <span className="text-xs text-gray-dark whitespace-nowrap">2 min</span>
+             </div>
+             <div className="flex flex-row w-full">
+              <UserWithTextBlock userName="Dinho Stork" userProfPic="t">
+                <span className="
+                truncate
+                w-40
+                block
+                text-gray
+                ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, ut, qui explicabo commodi quos ipsa mollitia praesentium enim, numquam aliquam consectetur. Suscipit quos odit magni alias maiores earum illo excepturi?</span>
+              </UserWithTextBlock>
+              <span className="text-xs text-gray-dark whitespace-nowrap">2 min</span>
+             </div>
+             <div className="flex flex-row w-full">
+              <UserWithTextBlock userName="Dinho Stork" userProfPic="t">
+                <span className="
+                truncate
+                w-40
+                block
+                text-gray
+                ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, ut, qui explicabo commodi quos ipsa mollitia praesentium enim, numquam aliquam consectetur. Suscipit quos odit magni alias maiores earum illo excepturi?</span>
+              </UserWithTextBlock>
+              <span className="text-xs text-gray-dark whitespace-nowrap">2 min</span>
+             </div>
             </MenuItemWrapper>
+            
           </Menu>
         </MenuWrapper>
       )}

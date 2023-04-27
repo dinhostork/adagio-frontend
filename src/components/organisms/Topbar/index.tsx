@@ -7,6 +7,7 @@ import { MessagesMenu } from "@/components/molecules/MessagesMenu";
 import { NotificationsMenu } from "@/components/molecules/NotificationsMenu";
 import { mainMenuBlock } from "./styles";
 import TopbarWrapper from "@/components/atoms/TopBarWrapper";
+import { SearchBox } from "@/components/molecules/SearchBox";
 
 
 
@@ -14,6 +15,7 @@ export const Topbar: React.FC<TopbarProps> = ({ children }) => {
   return (
     <TopbarWrapper>
       {children}
+      <SearchBox />
       <div className={mainMenuBlock}>
         <CreateMenu />
         <SolicitationsMenu />

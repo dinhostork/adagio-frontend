@@ -1,3 +1,3 @@
 export interface TopbarProps {
-    children: React.ReactNode;
+    children?: React.ReactNode;
   }

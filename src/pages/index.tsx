@@ -1,4 +1,3 @@
-import Nav from '@/components/molecules/BrowserMenu'
 import { Topbar } from '@/components/organisms/Topbar'
 import { Inter } from 'next/font/google'
 import Head from 'next/head'
@@ -13,15 +12,7 @@ export default function Home() {
       <Head>
         <title>Adagio</title>
       </Head>
-      <Topbar>
-        <Nav items={
-          [
-            { name: 'Home', href: '/' },
-            { name: 'About', href: '/about' },
-            { name: 'Contact', href: '/contact' },
-          ]
-        }/>
-      </Topbar>
+      <Topbar />
       </div>
       <div className="flex flex-row justify-between h-full w-full mt-8">
       <aside className="flex flex-col items-center justify-center h-full w-96 bg-carbone rounded-lg">

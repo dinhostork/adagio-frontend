@@ -6,5 +6,7 @@ flex
 flex-col
 gap-6
 mt-6
+h-44
+overflow-y-scroll
 `;
 

@@ -3,7 +3,8 @@ import { MenuHeader } from "@/components/atoms/MenuHeader";
 import { MenuItem } from "@/components/atoms/MenuItem";
 import { MenuItemWrapper } from "@/components/atoms/MenuItemWrapper";
 import MenuWrapper from "@/components/atoms/MenuWrapper";
-import { mainMenuWrapperPosition } from "@/styles/shared/componentsStyles";
+import { UserWithTextBlock } from "@/components/atoms/UserWithTextBlock";
+import { mainMenuWrapperPosition, smallMenu } from "@/styles/shared/componentsStyles";
 import { useComponentsMenu } from "@/utils/componentsToggleMenu";
 import { useCallback } from "react";
 import { BiCalendarPlus, BiGroup } from "react-icons/bi";
@@ -33,27 +34,23 @@ export const SolicitationsMenu: React.FC = () => {
         <MenuWrapper
           ref={menuRefSolicitacoes}
           className={mainMenuWrapperPosition}
-
         >
-          <Menu width="w-48" className="flex flex-col relative">
+          <Menu width={smallMenu} className="flex flex-col relative">
             <MenuHeader title="Solicitações" />
             <MenuItemWrapper>
-              <MenuItem href="#">
-                <MdOutlineLibraryMusic size={24} />
-                <span className="ml-4">Banda</span>
-              </MenuItem>
-              <MenuItem href="#">
-                <BiCalendarPlus size={24} />
-                <span className="ml-4">Evento</span>
-              </MenuItem>
-              <MenuItem href="#">
-                <BsBroadcastPin size={24} />
-                <span className="ml-4">Live</span>
-              </MenuItem>
-              <MenuItem href="#">
-                <GiGuitarHead size={24} />
-                <span className="ml-4">Habilidade</span>
-              </MenuItem>
+              <UserWithTextBlock />
+              <UserWithTextBlock />
+              <UserWithTextBlock />
+
+              <UserWithTextBlock />
+              <UserWithTextBlock />
+              <UserWithTextBlock />
+              <UserWithTextBlock />
+              <UserWithTextBlock />
+              <UserWithTextBlock />
+              <UserWithTextBlock />
+              <UserWithTextBlock />
+              <UserWithTextBlock />
             </MenuItemWrapper>
           </Menu>
         </MenuWrapper>

@@ -3,7 +3,7 @@ import { MenuHeader } from "@/components/atoms/MenuHeader";
 import { MenuItem } from "@/components/atoms/MenuItem";
 import { MenuItemWrapper } from "@/components/atoms/MenuItemWrapper";
 import MenuWrapper from "@/components/atoms/MenuWrapper";
-import { mainMenuWrapperPosition } from "@/styles/shared/componentsStyles";
+import {  mainMenuWrapperPosition, smallMenu } from "@/styles/shared/componentsStyles";
 import { useComponentsMenu } from "@/utils/componentsToggleMenu";
 import { useCallback } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
@@ -35,7 +35,7 @@ export const CreateMenu: React.FC = () => {
             ref={menuRefCreate}
             className={mainMenuWrapperPosition}
           >
-            <Menu width="w-48" className="flex flex-col">
+            <Menu width={smallMenu} className="flex flex-col">
               <MenuHeader title="Criar" />
               <MenuItemWrapper>
                 <MenuItem href="#">

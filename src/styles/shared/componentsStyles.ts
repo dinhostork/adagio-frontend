@@ -3,3 +3,8 @@ export const mainMenuWrapperPosition = `
     -left-36
     z-10
 `
+
+export const smallMenu = `
+    w-48
+    `
+    

@@ -9,7 +9,7 @@ import { IoIosLogOut } from "react-icons/io";
 import { MenuItemWrapper } from "@/components/atoms/MenuItemWrapper";
 import { MenuItem } from "@/components/atoms/MenuItem";
 import { MenuHeader } from "@/components/atoms/MenuHeader";
-import { avatarMenuWrapperPosition, menuWidth } from "./styles";
+import { avatarMenuWrapperPosition, itemSpacing, menuWidth } from "./styles";
 
 export const Avatar: React.FC = () => {
   const { isOpen, toggle, menuRef } = useComponentsMenu();
@@ -36,20 +36,20 @@ export const Avatar: React.FC = () => {
             <MenuHeader title="Dinho Stork" />
 
             <MenuItemWrapper>
-              <MenuItem href="/profile">
-                <BsPerson size={24} className="mr-4" />
+              <MenuItem >
+                <BsPerson size={24} className={itemSpacing} />
                 Perfil
               </MenuItem>
-              <MenuItem href="/settings">
-                <IoSettingsOutline size={24} className="mr-4" />
+              <MenuItem >
+                <IoSettingsOutline size={24} className={itemSpacing} />
                 Configurações
               </MenuItem>
-              <MenuItem href="/privacy">
-                <BiLockAlt size={24} className="mr-4" />
+              <MenuItem >
+                <BiLockAlt size={24} className={itemSpacing} />
                 Privacidade
               </MenuItem>
-              <MenuItem href="/logout">
-                <IoIosLogOut size={24} className="mr-4" />
+              <MenuItem >
+                <IoIosLogOut size={24} className={itemSpacing} />
                 Sair
               </MenuItem>
             </MenuItemWrapper>

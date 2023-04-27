@@ -1,6 +1,7 @@
 import Nav from '@/components/molecules/BrowserMenu'
 import { Topbar } from '@/components/organisms/Topbar'
 import { Inter } from 'next/font/google'
+import Head from 'next/head'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -9,7 +10,9 @@ export default function Home() {
     <main className={`bg-carbone-secondary h-screen w-full p-8 flex-row`}
     >
       <div>
-
+      <Head>
+        <title>Adagio</title>
+      </Head>
       <Topbar>
         <Nav items={
           [

@@ -1,13 +1,14 @@
 import { EventBlock } from "@/components/atoms/EventBlock";
 import Line from "@/components/atoms/LineDivider";
 import { UserUpdate } from "@/components/molecules/UserUpdate";
+import { sideBarTitle, sideBarWrapper, sectionWrapper } from "./styles";
 
 export const Leftbar: React.FC = () => {
   return (
-    <aside className="flex flex-col items-start h-full w-96 bg-carbone rounded-lg p-8">
-      <h1 className="text-lg text-white mb-4 pl-1">Atividades</h1>
+    <aside className={sideBarWrapper}>
+      <h1 className={sideBarTitle}>Atividades</h1>
       <Line />
-      <div className="flex flex-col items-center justify-normal w-full mt-4 gap-4 h-48 overflow-y-auto mb-8 z-0">
+      <div className={sectionWrapper}>
         <UserUpdate
           picture="https://avatars.githubusercontent.com/u/5059050"
           userName="Dinho Stork"
@@ -31,9 +32,9 @@ export const Leftbar: React.FC = () => {
         />
       </div>
 
-      <h1 className="text-lg text-white mb-4 pl-1">Eventos</h1>
+      <h1 className={sideBarTitle}>Eventos</h1>
       <Line />
-      <div className="flex flex-col items-center justify-normal w-full mt-4 gap-4 h-60 overflow-y-auto mb-8">
+      <div className={sectionWrapper}>
         <EventBlock
           date="02/02/2023"
           time="8h"
@@ -47,7 +48,6 @@ export const Leftbar: React.FC = () => {
           place="Cruz das Almas"
           title="Encontro de Guitarristas"
           link="/"
-
         />
         <EventBlock
           date="02/02/2023"
@@ -55,7 +55,6 @@ export const Leftbar: React.FC = () => {
           place="Cruz das Almas"
           title="Encontro de Guitarristas"
           link="/"
-
         />
         <EventBlock
           date="02/02/2023"
@@ -63,7 +62,6 @@ export const Leftbar: React.FC = () => {
           place="Cruz das Almas"
           title="Encontro de Guitarristas"
           link="/"
-
         />
       </div>
     </aside>

@@ -1,17 +1,19 @@
 import Line from "@/components/atoms/LineDivider";
-import { sideBarWrapper, boxContainer, sideBarTitle, sectionWrapper } from "../../../styles/shared/SidebarStyles";
+import {
+  SidebarItensContainer,
+  sideBarWrapper,
+} from "../../../styles/shared/SidebarStyles";
 import { MenuItem } from "@/components/atoms/MenuItem";
 import { BiCalendarPlus } from "react-icons/bi";
 import { GiGClef, GiGuitarHead } from "react-icons/gi";
 import { UserForLists } from "@/components/atoms/UserForLists";
+import { SidebarSection } from "@/components/molecules/SidebarSection";
 
 export const Rightbar: React.FC = () => {
   return (
     <aside className={sideBarWrapper}>
-      <div className={boxContainer}>
-        <h1 className={sideBarTitle}>Crie Algo Novo</h1>
-        <Line />
-        <div className={sectionWrapper + "h-auto pl-3"}>
+      <SidebarItensContainer>
+        <SidebarSection title="Crie Algo Novo">
           <MenuItem>
             <div className="flex justify-between w-10 h-10 o p-3 bg-gray-dark rounded-lg">
               <BiCalendarPlus size={18} />
@@ -30,12 +32,8 @@ export const Rightbar: React.FC = () => {
             </div>
             <span className={"ml-4"}>Adicionar Habilidades</span>
           </MenuItem>
-        </div>
-      </div>
-      <div className={boxContainer}>
-        <h1 className={sideBarTitle}>Artistas Sugeridos</h1>
-        <Line />
-        <div className={sectionWrapper + "h-auto"}>
+        </SidebarSection>
+        <SidebarSection title="Artistas Sugeridos">
           <UserForLists
             avatar="https://avatars.githubusercontent.com/u/5059050"
             name="Dinho Stork"
@@ -45,12 +43,8 @@ export const Rightbar: React.FC = () => {
             avatar="https://avatars.githubusercontent.com/u/5059050"
             name="Dinho Stork"
           />
-        </div>
-      </div>
-      <div className={boxContainer}>
-        <h1 className={sideBarTitle}>Amigos</h1>
-        <Line />
-        <div className={sectionWrapper}>
+        </SidebarSection>
+        <SidebarSection title="Amigos">
           <UserForLists
             avatar="https://avatars.githubusercontent.com/u/5059050"
             name="Dinho Stork"
@@ -60,8 +54,8 @@ export const Rightbar: React.FC = () => {
             avatar="https://avatars.githubusercontent.com/u/5059050"
             name="Dinho Stork"
           />
-        </div>
-      </div>
+        </SidebarSection>
+      </SidebarItensContainer>
     </aside>
   );
 };

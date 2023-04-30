@@ -1,10 +1,15 @@
-export interface UserForListsProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface UserForListsProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   name: string;
   avatar: string;
   online?: boolean;
 }
 
-export const UserForLists: React.FC<UserForListsProps> = ({ name, avatar, online=false }) => {
+export const UserForLists: React.FC<UserForListsProps> = ({
+  name,
+  avatar,
+  online = false,
+}) => {
   return (
     <div className="flex flex-row items-center justify-between w-full h-16 px-3 py-2 bg-carbone-primary  rounded-lg cursor-pointer hover:bg-carbone-secondary transition-all">
       <div className="flex flex-row items-center relative ">

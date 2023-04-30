@@ -6,7 +6,7 @@ import {
   sideBarWrapper,
   sectionWrapper,
   boxContainer,
-} from "./styles";
+} from "../../../styles/shared/SidebarStyles";
 
 export const Leftbar: React.FC = () => {
   return (

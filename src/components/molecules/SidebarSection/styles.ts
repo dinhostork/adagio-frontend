@@ -3,9 +3,9 @@ text-lg text-white mb-4 pl-1
 `;
 
 export const sectionWrapper = `
-flex flex-col items-start justify-normal w-full mt-4 gap-6 overflow-y-auto mb-16 z-0 h-[70%] relative pb-6
+flex flex-col items-start justify-normal w-auto mt-4 gap-8 mb-16 z-0 h-auto relative pb-6 overflow-auto max-h-[calc(100vh-40rem)]
 `;
 
 export const boxContainer = `
-    w-full max-h-[calc(54%)] h-auto
+    w-full h-auto 
 `;

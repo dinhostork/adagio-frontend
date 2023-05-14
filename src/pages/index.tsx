@@ -1,4 +1,5 @@
 import { Leftbar } from "@/components/organisms/Leftbar";
+import { Rightbar } from "@/components/organisms/Rightbar";
 import { Topbar } from "@/components/organisms/Topbar";
 import { Inter } from "next/font/google";
 import Head from "next/head";
@@ -17,9 +18,7 @@ export default function Home() {
       <div className="flex flex-row justify-between h-full w-full mt-8">
         <Leftbar />
         <div>posts</div>
-        <aside className="flex flex-col items-center justify-center h-full w-96 bg-carbone rounded-lg">
-          sidebar direita
-        </aside>
+        <Rightbar />
       </div>
     </main>
   );

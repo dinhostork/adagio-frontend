@@ -9,3 +9,7 @@ flex flex-col items-start justify-normal w-auto mt-4 gap-8 mb-16 z-0 h-auto rela
 export const boxContainer = `
     w-full h-auto 
 `;
+
+export const smallSection = `
+w-full mb-6
+`

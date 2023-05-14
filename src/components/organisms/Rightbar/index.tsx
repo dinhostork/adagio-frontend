@@ -8,13 +8,13 @@ import { BiCalendarPlus } from "react-icons/bi";
 import { GiGClef, GiGuitarHead } from "react-icons/gi";
 import { UserForLists } from "@/components/atoms/UserForLists";
 import { SidebarSection } from "@/components/molecules/SidebarSection";
-import { sideBarTitle } from "@/components/molecules/SidebarSection/styles";
+import { sideBarTitle, smallSection } from "@/components/molecules/SidebarSection/styles";
 
 export const Rightbar: React.FC = () => {
   return (
     <aside className={sideBarWrapper}>
       <SidebarItensContainer>
-        <div className="w-full mb-6">
+        <div className={smallSection}>
           <h1 className={sideBarTitle}>Artitas Sugeridos </h1>
           <Line />
           <div className="w-full h-auto overflow-auto flex flex-col gap-3">

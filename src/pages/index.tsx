@@ -1,4 +1,5 @@
 import { Leftbar } from "@/components/organisms/Leftbar";
+import { PublicationInput } from "@/components/organisms/PublicationInput";
 import { Rightbar } from "@/components/organisms/Rightbar";
 import { Topbar } from "@/components/organisms/Topbar";
 import { Inter } from "next/font/google";
@@ -17,7 +18,9 @@ export default function Home() {
       </div>
       <div className="flex flex-row justify-between h-full w-full mt-8">
         <Leftbar />
-        <div>posts</div>
+        <div className="flex flex-col justify-between w-full pr-4 pl-4 max-w-3xl ">
+          <PublicationInput />
+          </div>
         <Rightbar />
       </div>
     </main>

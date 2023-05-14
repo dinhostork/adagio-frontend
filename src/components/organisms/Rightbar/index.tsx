@@ -8,7 +8,11 @@ import { BiCalendarPlus } from "react-icons/bi";
 import { GiGClef, GiGuitarHead } from "react-icons/gi";
 import { UserForLists } from "@/components/atoms/UserForLists";
 import { SidebarSection } from "@/components/molecules/SidebarSection";
-import { sideBarTitle, smallSection } from "@/components/molecules/SidebarSection/styles";
+import {
+  sideBarTitle,
+  smallSection,
+} from "@/components/molecules/SidebarSection/styles";
+import { IconsContainer } from "./styles";
 
 export const Rightbar: React.FC = () => {
   return (
@@ -19,21 +23,21 @@ export const Rightbar: React.FC = () => {
           <Line />
           <div className="w-full h-auto overflow-auto flex flex-col gap-3">
             <MenuItem>
-              <div className="flex justify-between w-10 h-10 o p-3 bg-gray-dark rounded-lg">
+              <IconsContainer>
                 <BiCalendarPlus size={18} />
-              </div>
+              </IconsContainer>
               <span className={"ml-4"}>Marcar um Evento</span>
             </MenuItem>
             <MenuItem>
-              <div className="flex justify-between w-10 h-10 p-3 bg-gray-dark rounded-lg">
+              <IconsContainer>
                 <GiGClef size={18} />
-              </div>
+              </IconsContainer>
               <span className={"ml-4"}>Iniciar Jam Session</span>
             </MenuItem>
             <MenuItem>
-              <div className="flex justify-between w-10 h-10 p-3 bg-gray-dark rounded-lg">
+              <IconsContainer>
                 <GiGuitarHead size={18} />
-              </div>
+              </IconsContainer>
               <span className={"ml-4"}>Adicionar Habilidades</span>
             </MenuItem>
           </div>

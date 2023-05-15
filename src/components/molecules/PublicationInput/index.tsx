@@ -169,7 +169,7 @@ export const PublicationInput = () => {
           className={styles.publishButton}
           disabled={text.length <= 0}
           onClick={() => {
-            files.map(async (file: MediaFile) => {});
+            // TODO @dinhostork : Implementar publicação
           }}
         >
           Publicar

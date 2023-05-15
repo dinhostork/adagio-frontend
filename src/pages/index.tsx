@@ -1,5 +1,5 @@
 import { Leftbar } from "@/components/organisms/Leftbar";
-import { PublicationInput } from "@/components/organisms/PublicationInput";
+import { PublicationInput } from "@/components/molecules/PublicationInput";
 import { Rightbar } from "@/components/organisms/Rightbar";
 import { Topbar } from "@/components/organisms/Topbar";
 import { Inter } from "next/font/google";

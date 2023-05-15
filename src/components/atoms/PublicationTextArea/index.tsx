@@ -1,10 +1,6 @@
-import { useRef, useState } from "react";
 import { TextArea } from "./styles"
+import { PublicationTextAreaProps } from "./types";
 
-export interface PublicationTextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
-    inputRef?: React.RefObject<HTMLTextAreaElement>
-    text: string
-}
 
 export const PublicationTextArea: React.FC<PublicationTextAreaProps> = ({inputRef, text, ...props}) => {
 

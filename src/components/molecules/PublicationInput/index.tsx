@@ -7,6 +7,7 @@ import { MdPermMedia } from "react-icons/md";
 import { TbFileUpload } from "react-icons/tb";
 import { MediaFile } from "./types";
 import { PublicationTextArea } from "@/components/atoms/PublicationTextArea";
+import * as styles from "./styles";
 
 export const PublicationInput = () => {
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
@@ -38,7 +39,10 @@ export const PublicationInput = () => {
   const emojiPickerRef = useRef() as React.MutableRefObject<HTMLDivElement>;
 
   const handleOutsideClick = (e: MouseEvent) => {
-    if (emojiPickerRef.current && !emojiPickerRef.current.contains(e.target as Node)) {
+    if (
+      emojiPickerRef.current &&
+      !emojiPickerRef.current.contains(e.target as Node)
+    ) {
       setShowEmojiPicker(false);
     }
   };
@@ -50,23 +54,19 @@ export const PublicationInput = () => {
     };
   });
 
-  const handleFileSelect = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    // const uploadedFiles = await Promise.all(Array.from(event.target.files).map(upload));
-    // const updatedFiles = [...files, ...uploadedFiles];
-    // setFiles(updatedFiles);
-    // console.log(files);
+  const handleFileSelect = async (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    // TODO @dinhostork: Implementar upload de arquivos
   };
 
   const handleFileRemove = (publicId: string) => {
-    // deleteFile(publicId).then((res) => {
-    //   const newFiles = files.filter((file) => file.publicId !== publicId);
-    //   setFiles(newFiles);
-    // }).catch((err) => console.log(err));
+   // TODO @dinhostork : Implementar remoção de arquivos
   };
 
   return (
-    <div className="flex flex-col justify-between w-full pr-4 pl-4 max-w-3xl relative">
-      <div className="relative">
+    <div className={styles.container}>
+      <div className={styles.relativeWrapper}>
         <PublicationTextArea
           inputRef={inputRef}
           onChange={(e) => {
@@ -75,18 +75,16 @@ export const PublicationInput = () => {
           text={text}
         />
 
-        <div className="absolute bottom-2 right-4">
+        <div className={styles.absoluteButtonWrapper}>
           <button
             onClick={() => setShowEmojiPicker(true)}
-            className="focus:outline-none"
+            className={styles.emojiButton}
           >
             <span role="img" aria-label="emoji-button">
               <GrEmoji />
             </span>
           </button>
-          <button
-            className="ml-2 focus:outline-none"
-          >
+          <button className={styles.mediaButton}>
             <span
               role="img"
               aria-label="image-button"
@@ -104,16 +102,19 @@ export const PublicationInput = () => {
       <AvatarImg
         src="https://avatars.githubusercontent.com/u/5059050"
         alt="Dinho Stork"
-        className="absolute top-5 left-10"
+        className={styles.avatar}
       />
 
       {showEmojiPicker && (
-        <div ref={emojiPickerRef} className="absolute -top-24 right-2 z-10">
+        <div ref={emojiPickerRef} className={styles.emojiPickerContainer}>
           <button
             onClick={() => setShowEmojiPicker(false)}
-            className="focus:outline-none bg-carbone"
+            className={styles.emojiPickerButton}
           >
-            <IoClose className="absolute right-0 -top-2 text-white" size={24} />
+            <IoClose
+              className={styles.emojiPickerCloseButton}
+              size={styles.iconSize}
+            />
           </button>
           <EmojiPicker
             onEmojiClick={handleEmojiClick}
@@ -124,9 +125,9 @@ export const PublicationInput = () => {
       )}
 
       {oppenedMediaArea && (
-        <div className="w-full h-24 bg-carbone rounded-md mt-4 flex items-center flex-row gap-4 overflow-scroll">
-          <div className="w-10 h-10 flex flex-row justify-center items-center border-2 border-gray-dark ml-8 transition ease-in-out">
-            <label htmlFor="file-upload" className="cursor-pointer">
+        <div className={styles.mediaArea}>
+          <div className={styles.fileUploadWrapper}>
+            <label htmlFor="file-upload" className={styles.fileUploadLabel}>
               <TbFileUpload
                 className="text-gray-dark transition ease-in-out hover:text-white"
                 size={24}
@@ -135,7 +136,7 @@ export const PublicationInput = () => {
             <input
               id="file-upload"
               type="file"
-              className="hidden"
+              className={styles.inputFile}
               onChange={handleFileSelect}
               multiple
             />
@@ -143,14 +144,11 @@ export const PublicationInput = () => {
 
           {files.map((file, index) => {
             return (
-              <div
-                key={index}
-                className="flex flex-row justify-between items-center w-20 h-20 border-2 border-gray-dark relative"
-              >
+              <div key={index} className={styles.mediaItem}>
                 <img src={file.secureUrl} alt={file.name} />
                 <button
                   onClick={() => handleFileRemove(file.publicId)}
-                  className="absolute right-0 top-0"
+                  className={styles.closeButton}
                 >
                   <IoClose className="text-white" size={24} />
                 </button>
@@ -162,7 +160,7 @@ export const PublicationInput = () => {
 
       {text.length > 0 && (
         <button
-          className="bg-blue-light rounded-md h-10 mt-4 disabled:bg-carbone transition ease-in-out hover:bg-b shadow-md"
+          className={styles.publishButton}
           disabled={text.length <= 0}
           onClick={() => {
             files.map(async (file: MediaFile) => {});

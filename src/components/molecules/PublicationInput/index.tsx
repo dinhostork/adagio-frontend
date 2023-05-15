@@ -8,6 +8,7 @@ import { TbFileUpload } from "react-icons/tb";
 import { MediaFile } from "./types";
 import { PublicationTextArea } from "@/components/atoms/PublicationTextArea";
 import * as styles from "./styles";
+import Image from "next/image";
 
 export const PublicationInput = () => {
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
@@ -61,7 +62,7 @@ export const PublicationInput = () => {
   };
 
   const handleFileRemove = (publicId: string) => {
-   // TODO @dinhostork : Implementar remoção de arquivos
+    // TODO @dinhostork : Implementar remoção de arquivos
   };
 
   return (
@@ -145,12 +146,17 @@ export const PublicationInput = () => {
           {files.map((file, index) => {
             return (
               <div key={index} className={styles.mediaItem}>
-                <img src={file.secureUrl} alt={file.name} />
+                <Image
+                  src={file.secureUrl || file.url}
+                  alt={file.name}
+                  width={20}
+                  height={20}
+                />
                 <button
                   onClick={() => handleFileRemove(file.publicId)}
                   className={styles.closeButton}
                 >
-                  <IoClose className="text-white" size={24} />
+                  <IoClose className="text-white" size={styles.iconSize} />
                 </button>
               </div>
             );

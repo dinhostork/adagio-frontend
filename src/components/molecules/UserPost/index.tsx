@@ -11,6 +11,7 @@ export interface Post {
   likes: number;
   comments: number;
   shares: number;
+  liked: boolean;
 }
 
 const randomPostsGenerator = (count: number): Post[] => {
@@ -20,10 +21,11 @@ const randomPostsGenerator = (count: number): Post[] => {
       id: i.toString(),
       ownerName: "John Doe",
       ownerPhoto: "https://picsum.photos/seed/" + i + "/32",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ultricies aliquam, nunc nisl aliquet nunc, vitae aliquam nisl nunc eu nisl. Donec euismod, nisl eget ultricies aliquam, nunc nisl aliquet nunc, vitae aliquam nisl nunc eu nisl.",
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ultricies aliquam, nun ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ultricies aliquam, nun ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ultricies aliquam, nun ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ultricies aliquam, nun ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ultricies aliquam, nun ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ultricies aliquam, nun ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ultricies aliquam, nunc nisl aliquet nunc, vitae aliquam nisl nunc eu nisl. Donec euismod, nisl eget ultricies aliquam, nunc nisl aliquet nunc, vitae aliquam nisl nunc eu nisl.",
       likes: Math.floor(Math.random() * 100),
       comments: Math.floor(Math.random() * 100),
       shares: Math.floor(Math.random() * 100),
+      liked: Math.random() > 0.5,
     });
   }
   return posts;
@@ -31,6 +33,7 @@ const randomPostsGenerator = (count: number): Post[] => {
 
 export const UserPost = () => {
   const [posts, setPosts] = useState<Post[]>([]);
+  const [showFullText, setShowFullText] = useState(false);
   useEffect(() => {
     setPosts(randomPostsGenerator(10));
   }, []);
@@ -58,31 +61,67 @@ export const UserPost = () => {
                   <span className="text-gray-light font-light text-xs">2h</span>
                 </div>
               </div>
-              <div className="flex flex-row ml-auto items-center text-gray-dark hover:text-white transition ease-in-out cursor-pointer">
+              <div
+                className="flex flex-row ml-auto items-center text-gray-dark hover:text-white transition ease-in-out cursor-pointer"
+                onClick={() => {
+                  // TODO - implement post menu
+                }}
+              >
                 <IoIosMore />
               </div>
             </div>
             <div className="flex flex-col w-full h-full p-4 px-10">
-              <span className="text-white font-light text-sm">{post.text}</span>
+              <span className="text-white font-light text-sm">
+                {showFullText ? post.text : post.text.slice(0, 300)}
+                {post.text.length > 300 && (
+                  <>
+                    {showFullText ? (
+                      <span
+                        className="text-blue-light font-light text-sm cursor-pointer"
+                        onClick={() => setShowFullText(false)}
+                      >
+                        Ver menos
+                      </span>
+                    ) : (
+                      <span
+                        className="text-blue-light font-light text-sm cursor-pointer"
+                        onClick={() => setShowFullText(true)}
+                      >
+                        Ver mais
+                      </span>
+                    )}
+                  </>
+                )}
+              </span>
             </div>
             <div className="flex flex-row w-full h-32 rounded-b-md bg-night-light justify-between items-center px-10 bg-night ">
               <div className="flex flex-row items-center justify-between w-full">
                 <button
-                  className="flex flex-row items-center w-auto font-light text-xs"
+                  className={`flex flex-row items-center w-auto font-light text-xs  ${
+                    post.liked ? "text-blue-light" : "text-white"
+                  }`}
                   onClick={() => {
-                    post.likes += 1;
+                    // TODO - implement like
+                    post.liked = !post.liked;
+                    post.liked ? post.likes++ : post.likes--;
+
                     setPosts([...posts]);
                   }}
                 >
-                  <BiLike size={16} className="text-white text-xl mr-2" />
+                  <BiLike size={16} className="text-xl mr-2" />
                   Curtir
                   {post.likes > 0 && (
-                    <span className="text-white font-light text-xs ml-2">
+                    <span className="font-light text-xs ml-2">
                       {post.likes}
                     </span>
                   )}
                 </button>
-                <button className="flex flex-row items-center w-auto font-light text-xs">
+                <button
+                  className="flex flex-row items-center w-auto font-light text-xs"
+                  onClick={() => {
+                    // TODO - implement comment modal
+                  }}
+                >
                   <BiCommentEdit
                     size={16}
                     className="text-white text-xl mr-2"
@@ -94,7 +133,12 @@ export const UserPost = () => {
                     </span>
                   )}
                 </button>
-                <button className="flex flex-row items-center w-auto font-light text-xs">
+                <button
+                  className="flex flex-row items-center w-auto font-light text-xs"
+                  onClick={() => {
+                    // TODO - implement share modal
+                  }}
+                >
                   <BiShare size={16} className="text-white text-xl mr-2" />
                   Compartilhar
                   {post.shares > 0 && (

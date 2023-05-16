@@ -19,7 +19,7 @@ export const Rightbar: React.FC = () => {
     <aside className={sideBarWrapper}>
       <SidebarItensContainer>
         <div className={smallSection}>
-          <h1 className={sideBarTitle}>Artitas Sugeridos </h1>
+          <h1 className={sideBarTitle}>Crie Algo Novo </h1>
           <Line />
           <div className="w-full h-auto overflow-auto flex flex-col gap-3">
             <MenuItem>
@@ -44,7 +44,7 @@ export const Rightbar: React.FC = () => {
         </div>
 
         <div className="w-full mb-6">
-          <h1 className={sideBarTitle}>Artitas Sugeridos </h1>
+          <h1 className={sideBarTitle}>Artistas Sugeridos </h1>
           <Line />
           <UserForLists
             avatar="https://avatars.githubusercontent.com/u/5059050"

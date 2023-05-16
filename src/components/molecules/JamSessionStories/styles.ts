@@ -1,0 +1,13 @@
+export const container = "flex flex-col justify-between w-full pr-4 pl-4 max-w-3xl relative mt-8";
+export const contentContainer = "flex flex-col bg-carbone h-auto pl-10 pt-6 pb-4 pr-10 rounded-md justify-around";
+export const title = "text-white font-normal text-xl mb-4";
+export const itemsContainer = "flex flex-row gap-8 w-full overflow-x-auto overscroll-x-auto pb-4 overflow-y-auto snap-x";
+export const itemContainer = "flex flex-col w-28 items-center";
+export const addButtonContainer = "flex flex-col justify-center items-center w-28 h-28 border-2 border-blue-dark cursor-pointer shadow-sm shadow-blue-light rounded-md text-blue-light hover:text-blue-dark hover:border-blue-dark transition ease-out";
+export const memberCount = "mt-4";
+export const imageContainer = "flex flex-col justify-center items-center w-28 h-28  cursor-pointer shadow-sm  rounded-md text-blue-light hover:text-blue-dark hover:border-blue-dark transition ease-out drop-shadow-lg shadow-blue-light relative";
+export const image = "rounded-md";
+export const gradientOverlay = "bg-gradient-to-b from-transparent to-carbone-tertiary h-28 w-28 absolute flex flex-row justify-between items-end pb-2 pl-2 pr-2";
+export const genre = "text-gray text-xs rounded-md p-1";
+export const memberCountOverlay = "text-blue-light text-xs rounded-md p-1";
+export const ownerName = "mt-4";

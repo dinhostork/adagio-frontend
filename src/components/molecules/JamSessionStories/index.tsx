@@ -5,9 +5,6 @@ import * as styles from "./styles";
 import { JamSession } from "./types";
 import { randomStoriesGenerator } from "@/utils/fakeJamStoriesGenerator";
 
-
-
-
 export const JamSessionStories = () => {
   const [stories, setStories] = useState<JamSession[]>([]);
 

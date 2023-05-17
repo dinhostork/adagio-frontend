@@ -1,8 +1,24 @@
 import AvatarImg from "@/components/atoms/Avatar";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { BiCommentEdit, BiLike, BiShare } from "react-icons/bi";
 import { IoIosMore } from "react-icons/io";
+import { register } from "swiper/element/bundle";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper";
 
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+
+export interface PostMedia {
+  id: string;
+  type: "image" | "video" | "audio";
+  url: string;
+  thumbnail: string;
+}
 export interface Post {
   id: string;
   ownerName: string;
@@ -12,6 +28,7 @@ export interface Post {
   comments: number;
   shares: number;
   liked: boolean;
+  media: PostMedia[];
 }
 
 const randomPostsGenerator = (count: number): Post[] => {
@@ -21,11 +38,43 @@ const randomPostsGenerator = (count: number): Post[] => {
       id: i.toString(),
       ownerName: "John Doe",
       ownerPhoto: "https://picsum.photos/seed/" + i + "/32",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ultricies aliquam, nun ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ultricies aliquam, nun ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ultricies aliquam, nun ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ultricies aliquam, nun ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ultricies aliquam, nun ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ultricies aliquam, nun ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ultricies aliquam, nunc nisl aliquet nunc, vitae aliquam nisl nunc eu nisl. Donec euismod, nisl eget ultricies aliquam, nunc nisl aliquet nunc, vitae aliquam nisl nunc eu nisl.",
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget aliquam ultricies, nunc nunc aliquet nunc, vitae aliquam nunc",
       likes: Math.floor(Math.random() * 100),
       comments: Math.floor(Math.random() * 100),
       shares: Math.floor(Math.random() * 100),
       liked: Math.random() > 0.5,
+      media: [
+        {
+          id: i.toString(),
+          type: "image",
+          url: "https://picsum.photos/seed/" + i + "/800/600",
+          thumbnail: "https://picsum.photos/seed/" + i + "/800/600",
+        },
+        {
+          id: (i + 1).toString(),
+          type: "image",
+          url: "https://picsum.photos/seed/" + i + 2 + "/800/600",
+          thumbnail: "https://picsum.photos/seed/" + i + "/800/600",
+        },
+        {
+          id: (i + 2).toString(),
+          type: "image",
+          url: "https://picsum.photos/seed/" + i + 1 + "/800/600",
+          thumbnail: "https://picsum.photos/seed/" + i + "/800/600",
+        },
+        {
+          id: (i + 3).toString(),
+          type: "video",
+          url: "https://www.w3schools.com/html/mov_bbb.mp4",
+          thumbnail: "https://picsum.photos/seed/" + i + "/800/600",
+        },
+        {
+          id: (i + 4).toString(),
+          type: "audio",
+          url: "https://www.w3schools.com/html/horse.ogg",
+          thumbnail: "https://picsum.photos/seed/" + i + "/800/600",
+        },
+      ],
     });
   }
   return posts;
@@ -44,8 +93,8 @@ export const UserPost = () => {
           className="flex flex-col justify-between w-full pr-4 pl-4 max-w-3xl relative mt-8"
           key={post.id}
         >
-          <div className="flex flex-col bg-carbone w-full h-64 rounded-md">
-            <div className="bg-night w-full h-48 rounded-t-md px-10 flex flex-row items-center justify-between">
+          <div className="flex flex-col bg-carbone w-full rounded-md">
+            <div className="bg-night w-full flex-grow py-4 rounded-t-md px-10 flex flex-row items-center justify-between">
               <div className="flex flex-row cursor-pointer">
                 <AvatarImg
                   src={post.ownerPhoto}
@@ -72,14 +121,15 @@ export const UserPost = () => {
             </div>
             <div className="flex flex-col w-full h-full p-4 px-10">
               <span className="text-white font-light text-sm">
-                {showFullText ? post.text : post.text.slice(0, 300)}
-                {post.text.length > 300 && (
+                {showFullText ? post.text : post.text.slice(0, 500)}
+                {post.text.length > 500 && (
                   <>
                     {showFullText ? (
                       <span
                         className="text-blue-light font-light text-sm cursor-pointer"
                         onClick={() => setShowFullText(false)}
                       >
+                        {" "}
                         Ver menos
                       </span>
                     ) : (
@@ -87,14 +137,55 @@ export const UserPost = () => {
                         className="text-blue-light font-light text-sm cursor-pointer"
                         onClick={() => setShowFullText(true)}
                       >
-                        Ver mais
+                        {" ..."}Ver mais
                       </span>
                     )}
                   </>
                 )}
               </span>
             </div>
-            <div className="flex flex-row w-full h-32 rounded-b-md bg-night-light justify-between items-center px-10 bg-night ">
+            <div className="px-10 pb-4">
+              {post.media.length > 0 && (
+                <Swiper
+                  pagination={{
+                    type: "progressbar",
+                  }}
+                  centeredSlides
+                  navigation={true}
+                  modules={[Pagination, Navigation]}
+                >
+                  {post.media.map((media: PostMedia) => (
+                    <SwiperSlide key={media.id}>
+                      {media.type === "image" && (
+                        <Image
+                          src={media.url}
+                          alt={media.id}
+                          width={800}
+                          height={600}
+                        />
+                      )}
+                      {media.type === "video" && (
+                        <video
+                          src={media.url}
+                          loop
+                          controls
+                          className="w-full h-full self-center"
+                        
+                        />
+                      )}
+                      {media.type === "audio" && (
+                        <audio
+                          src={media.url}
+                          controls
+                          className="w-full h-full self-center"
+                        />
+                      )}
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              )}
+            </div>
+            <div className="flex flex-row w-full flex-grow py-6 rounded-b-md bg-night-light justify-between items-center px-10 bg-night ">
               <div className="flex flex-row items-center justify-between w-full">
                 <button
                   className={`flex flex-row items-center w-auto font-light text-xs  ${

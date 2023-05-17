@@ -21,7 +21,7 @@ export default function Home() {
       </div>
       <div className="flex flex-row justify-between h-full w-full mt-8">
         <Leftbar />
-        <div className="flex flex-col w-full pr-4 pl-4 max-w-3xl h-full">
+        <div className="flex flex-col w-full pr-4 pl-4 max-w-3xl h-full flex-grow">
           <Main />
         </div>
         <Rightbar />

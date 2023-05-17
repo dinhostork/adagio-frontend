@@ -32,6 +32,9 @@ module.exports = {
         light: '#5835E6',
         dark: '#352088',
       },
+      night: {
+        DEFAULT: '#272A34',
+      }
     },
     extend: {
       backgroundImage: {

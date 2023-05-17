@@ -5,7 +5,7 @@ import { SidebarSection } from "@/components/molecules/SidebarSection";
 
 export const Leftbar: React.FC = () => {
   return (
-    <aside className={sideBarWrapper}>
+    <aside className="flex flex-col items-start h-full flex-grow max-w-sm bg-carbone rounded-lg p-8 justify-between mb-32">
       <SidebarItensContainer>
       <SidebarSection title="Atividades">
         <UserUpdate

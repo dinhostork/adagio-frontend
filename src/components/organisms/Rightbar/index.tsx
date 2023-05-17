@@ -16,7 +16,7 @@ import { IconsContainer } from "./styles";
 
 export const Rightbar: React.FC = () => {
   return (
-    <aside className={sideBarWrapper}>
+    <aside className="flex flex-col items-start h-full flex-grow max-w-sm bg-carbone rounded-lg p-8 justify-between mb-32">
       <SidebarItensContainer>
         <div className={smallSection}>
           <h1 className={sideBarTitle}>Crie Algo Novo </h1>

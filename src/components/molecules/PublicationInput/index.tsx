@@ -19,6 +19,7 @@ import {
   IoMdLock,
   IoMdPeople,
 } from "react-icons/io";
+import { renderPrivacyIcon } from "@/utils/renderPrivacyIcon";
 
 export const PublicationInput: React.FC<PublicationInputProps> = ({
   userPrivacyDefault = "public",
@@ -32,18 +33,6 @@ export const PublicationInput: React.FC<PublicationInputProps> = ({
     userPrivacyDefault
   );
 
-  const renderPrivacyIcon = () => {
-    switch (privacy) {
-      case "public":
-        return <IoMdGlobe />;
-      case "friends":
-        return <IoMdPeople />;
-      case "only-me":
-        return <IoMdLock />;
-      default:
-        return <IoMdGlobe />;
-    }
-  };
 
   const changePrivacy = (privacy: PrivacyOption) => {
     setPrivacy(privacy);
@@ -99,7 +88,7 @@ export const PublicationInput: React.FC<PublicationInputProps> = ({
             className={styles.privacyMenuButton}
             onClick={() => setPrivacyMenuOpen(!privacyMenuOpen)}
           >
-            {renderPrivacyIcon()}
+            {renderPrivacyIcon(privacy)}
             <IoIosArrowDown
               className={`${
                 privacyMenuOpen ? styles.privacyMenuButtonIcon : ""

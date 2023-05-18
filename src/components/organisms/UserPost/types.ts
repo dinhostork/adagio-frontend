@@ -1,4 +1,5 @@
 import { CommentType } from "@/components/molecules/Comment/types";
+import { PrivacyOption } from "@/components/molecules/PublicationInput/types";
 
 export interface PostMedia {
     id: string;
@@ -18,11 +19,14 @@ export interface PostMedia {
     liked: boolean;
     media: PostMedia[];
     commentsList?: CommentType[];
+    privacy: PrivacyOption;
+    ownerId: string;
   }
   
   
   export type UserPostProps = {
     post: Post;
+    loggedUserId: string;
   };
 
  

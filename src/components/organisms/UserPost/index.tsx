@@ -6,19 +6,41 @@ import "swiper/css/scrollbar";
 import AvatarImg from "@/components/atoms/Avatar";
 import Image from "next/image";
 import { useState } from "react";
-import { BiCommentEdit, BiLike, BiShare } from "react-icons/bi";
-import { IoIosMore } from "react-icons/io";
+import { BiCommentEdit, BiFlag, BiHide, BiLike, BiShare } from "react-icons/bi";
+import {
+  IoIosArrowDown,
+  IoIosMore,
+  IoMdGlobe,
+  IoMdLock,
+  IoMdPeople,
+} from "react-icons/io";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
 import * as styles from "./styles";
 import { PostMedia, UserPostProps } from "./types";
 import { CommentInput } from "../../molecules/CommentInput";
 import { Comment } from "../../molecules/Comment";
+import { renderPrivacyIcon } from "@/utils/renderPrivacyIcon";
+import { MdOutlineDelete, MdOutlineEdit } from "react-icons/md";
+import { PrivacyOption } from "@/components/molecules/PublicationInput/types";
 
-export const UserPost: React.FC<UserPostProps> = ({ post, ...props }) => {
+export const UserPost: React.FC<UserPostProps> = ({
+  post,
+  loggedUserId,
+  ...props
+}) => {
   const [showCommentModal, setShowCommentModal] = useState(false);
   const [showFullText, setShowFullText] = useState(false);
+  const [postMenuOpen, setPostMenuOpen] = useState(false);
+  const [privacy, setPrivacy] = useState<"public" | "friends" | "only-me">(
+    post.privacy
+  );
+  const [privacyMenuOpen, setPrivacyMenuOpen] = useState(false);
 
+  const changePrivacy = (privacy: PrivacyOption) => {
+    setPrivacy(privacy);
+    setPrivacyMenuOpen(false);
+  };
   return (
     <div className={styles.postWrapper} key={post.id}>
       <div className={styles.postContainer}>
@@ -33,17 +55,114 @@ export const UserPost: React.FC<UserPostProps> = ({ post, ...props }) => {
             />
             <div className={styles.ownerInfo}>
               <span className={styles.ownerName}>{post.ownerName}</span>
-              <span className={styles.postTime}>2h</span>
+              <div className={styles.privacyAndTimeContainer}>
+                <span className={styles.postTime}>2h</span>
+                <div
+                  className="flex flex-row"
+                  onClick={() =>
+                    loggedUserId === post.ownerId
+                      ? setPrivacyMenuOpen(!privacyMenuOpen)
+                      : null
+                  }
+                >
+                  {renderPrivacyIcon(privacy)}
+                  {loggedUserId === post.ownerId && (
+                    <IoIosArrowDown
+                      className={`${
+                        privacyMenuOpen ? styles.privacyMenuButtonIcon : ""
+                      }`}
+                    />
+                  )}
+                </div>
+                {privacyMenuOpen && (
+                  <div className={styles.privacyMenuContainer}>
+                    <div className={styles.privacyMenuOptions}>
+                      <button
+                        className={styles.privacyMenuItem}
+                        onClick={() => {
+                          changePrivacy("public");
+                        }}
+                      >
+                        <IoMdGlobe />
+                        Público
+                      </button>
+                      <button
+                        className={styles.privacyMenuItem}
+                        onClick={() => {
+                          changePrivacy("friends");
+                        }}
+                      >
+                        <IoMdPeople />
+                        Amigos
+                      </button>
+                      <button
+                        className={styles.privacyMenuItem}
+                        onClick={() => {
+                          changePrivacy("only-me");
+                        }}
+                      >
+                        <IoMdLock />
+                        Somente eu
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
           <div
             className={styles.postMenu}
             onClick={() => {
-              // TODO - implement post menu
+              setPostMenuOpen(!postMenuOpen);
             }}
           >
             <IoIosMore />
           </div>
+          {postMenuOpen && (
+            <div className={styles.postMenuOptions}>
+              {post.ownerId === loggedUserId && (
+                <>
+                  <button
+                    className={styles.postMenuOption}
+                    onClick={() => {
+                      // TODO - implement edit post
+                    }}
+                  >
+                    Editar
+                    <MdOutlineEdit />
+                  </button>
+                  <button
+                    className={styles.postMenuOption}
+                    onClick={() => {
+                      // TODO - implement delete post
+                    }}
+                  >
+                    Excluir
+                    <MdOutlineDelete />
+                  </button>
+                </>
+              )}
+
+              <button
+                className={styles.postMenuOption}
+                onClick={() => {
+                  // TODO - implement hide post
+                }}
+              >
+                Ocultar
+                <BiHide />
+              </button>
+              <button
+                className={styles.postMenuOption}
+                onClick={() => {
+                  // TODO - implement report post
+                }}
+              >
+                Denunciar
+                <BiFlag />
+              </button>
+            </div>
+          )}
         </div>
         <div className={styles.postContent}>
           <span className={styles.postText}>

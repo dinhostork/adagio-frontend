@@ -5,7 +5,7 @@ import { IoClose } from "react-icons/io5";
 import { GrEmoji } from "react-icons/gr";
 import { MdPermMedia } from "react-icons/md";
 import { TbFileUpload } from "react-icons/tb";
-import { MediaFile } from "./types";
+import { MediaFile, PrivacyOption, PublicationInputProps } from "./types";
 import { PublicationTextArea } from "@/components/atoms/PublicationTextArea";
 import * as styles from "./styles";
 import Image from "next/image";
@@ -19,13 +19,6 @@ import {
   IoMdLock,
   IoMdPeople,
 } from "react-icons/io";
-
-export type PrivacyOption = "public" | "friends" | "only-me";
-
-export interface PublicationInputProps
-  extends React.HTMLAttributes<HTMLDivElement> {
-  userPrivacyDefault?: PrivacyOption;
-}
 
 export const PublicationInput: React.FC<PublicationInputProps> = ({
   userPrivacyDefault = "public",

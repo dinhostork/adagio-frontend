@@ -5,3 +5,9 @@ export interface MediaFile extends File {
     url: string;
 }
 
+export type PrivacyOption = "public" | "friends" | "only-me";
+
+export interface PublicationInputProps
+  extends React.HTMLAttributes<HTMLDivElement> {
+  userPrivacyDefault?: PrivacyOption;
+}

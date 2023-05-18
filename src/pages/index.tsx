@@ -6,7 +6,7 @@ import { Inter } from "next/font/google";
 import Head from "next/head";
 import { JamSessionStories } from "@/components/molecules/JamSessionStories";
 import { UserPost } from "@/components/organisms/UserPost";
-import { Main } from "@/components/organisms/Main";
+import { Main } from "@/components/templates/Main";
 
 const inter = Inter({ subsets: ["latin"] });
 

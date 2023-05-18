@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { FiPlus } from "react-icons/fi";
 import * as styles from "./styles";
 import { JamSession } from "./types";
-import { randomStoriesGenerator } from "@/utils/fakeJamStoriesGenerator";
+import { randomStoriesGenerator } from "@/mocks/fakeJamStoriesGenerator";
 
 export const JamSessionStories = () => {
   const [stories, setStories] = useState<JamSession[]>([]);

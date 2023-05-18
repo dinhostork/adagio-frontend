@@ -1,6 +1,6 @@
 export const postWrapper = "flex flex-col justify-between w-full pr-4 pl-4 max-w-3xl relative mt-8";
 export const postContainer = "flex flex-col bg-carbone w-full rounded-md";
-export const postHeader = "bg-night w-full flex-grow py-4 rounded-t-md px-10 flex flex-row items-center justify-between";
+export const postHeader = "bg-night w-full flex-grow py-4 rounded-t-md px-10 flex flex-row items-center justify-between z-10";
 export const ownerContainer = "flex flex-row cursor-pointer";
 export const ownerPhoto = "rounded-full";
 export const ownerInfo = "flex flex-col ml-4 justify-center";
@@ -23,3 +23,4 @@ export const commentIcon = "text-white text-xl mr-2";
 export const commentCount = "text-white font-light text-xs ml-2";
 export const shareIcon = "text-white text-xl mr-2";
 export const shareCount = "text-white font-light text-xs ml-2";
+export const commentsContainer = "flex bg-carbone bg-opacity-75 bottom-10 pt-4 px-10 py-4 flex-col gap-6 h-auto max-h-96 overflow-y-auto w-full"

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import AvatarImg from "@/components/atoms/Avatar";
 import EmojiPicker, { EmojiClickData, Theme } from "emoji-picker-react";
 import { IoClose } from "react-icons/io5";
@@ -9,14 +9,53 @@ import { MediaFile } from "./types";
 import { PublicationTextArea } from "@/components/atoms/PublicationTextArea";
 import * as styles from "./styles";
 import Image from "next/image";
-import { handleEmojiBoxOutsideClick, handleEmojiClick } from "@/utils/handleEmojiClick";
+import {
+  handleEmojiBoxOutsideClick,
+  handleEmojiClick,
+} from "@/utils/handleEmojiClick";
+import {
+  IoIosArrowDown,
+  IoMdGlobe,
+  IoMdLock,
+  IoMdPeople,
+} from "react-icons/io";
 
-export const PublicationInput = () => {
+export type PrivacyOption = "public" | "friends" | "only-me";
+
+export interface PublicationInputProps
+  extends React.HTMLAttributes<HTMLDivElement> {
+  userPrivacyDefault?: PrivacyOption;
+}
+
+export const PublicationInput: React.FC<PublicationInputProps> = ({
+  userPrivacyDefault = "public",
+}) => {
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [oppenedMediaArea, setoppenedMediaArea] = useState(false);
   const [files, setFiles] = useState<MediaFile[]>([]);
   const [text, setText] = useState("");
+  const [privacyMenuOpen, setPrivacyMenuOpen] = useState(false);
+  const [privacy, setPrivacy] = useState<"public" | "friends" | "only-me">(
+    userPrivacyDefault
+  );
 
+  const renderPrivacyIcon = () => {
+    switch (privacy) {
+      case "public":
+        return <IoMdGlobe />;
+      case "friends":
+        return <IoMdPeople />;
+      case "only-me":
+        return <IoMdLock />;
+      default:
+        return <IoMdGlobe />;
+    }
+  };
+
+  const changePrivacy = (privacy: PrivacyOption) => {
+    setPrivacy(privacy);
+    setPrivacyMenuOpen(false);
+  };
 
   const handleMediaAreaIconClick = () => {
     setoppenedMediaArea(!oppenedMediaArea);
@@ -25,11 +64,19 @@ export const PublicationInput = () => {
   const inputRef = useRef() as React.MutableRefObject<HTMLTextAreaElement>;
   const emojiPickerRef = useRef() as React.MutableRefObject<HTMLDivElement>;
 
-  
   useEffect(() => {
-    document.addEventListener("click", (e)=> handleEmojiBoxOutsideClick(e, emojiPickerRef, setShowEmojiPicker), true);
+    document.addEventListener(
+      "click",
+      (e) => handleEmojiBoxOutsideClick(e, emojiPickerRef, setShowEmojiPicker),
+      true
+    );
     return () => {
-      document.removeEventListener("click", (e)=> handleEmojiBoxOutsideClick(e, emojiPickerRef, setShowEmojiPicker), true);
+      document.removeEventListener(
+        "click",
+        (e) =>
+          handleEmojiBoxOutsideClick(e, emojiPickerRef, setShowEmojiPicker),
+        true
+      );
     };
   });
 
@@ -53,6 +100,54 @@ export const PublicationInput = () => {
           }}
           text={text}
         />
+
+        <div className={styles.privacyMenuButtonContainer}>
+          <button
+            className={styles.privacyMenuButton}
+            onClick={() => setPrivacyMenuOpen(!privacyMenuOpen)}
+          >
+            {renderPrivacyIcon()}
+            <IoIosArrowDown
+              className={`${
+                privacyMenuOpen ? styles.privacyMenuButtonIcon : ""
+              }`}
+            />
+          </button>
+        </div>
+
+        {privacyMenuOpen && (
+          <div className={styles.privacyMenuContainer}>
+            <div className={styles.privacyMenuOptions}>
+              <button
+                className={styles.privacyMenuItem}
+                onClick={() => {
+                  changePrivacy("public");
+                }}
+              >
+                <IoMdGlobe />
+                Público
+              </button>
+              <button
+                className={styles.privacyMenuItem}
+                onClick={() => {
+                  changePrivacy("friends");
+                }}
+              >
+                <IoMdPeople />
+                Amigos
+              </button>
+              <button
+                className={styles.privacyMenuItem}
+                onClick={() => {
+                  changePrivacy("only-me");
+                }}
+              >
+                <IoMdLock />
+                Somente eu
+              </button>
+            </div>
+          </div>
+        )}
 
         <div className={styles.absoluteButtonWrapper}>
           <button
@@ -96,7 +191,9 @@ export const PublicationInput = () => {
             />
           </button>
           <EmojiPicker
-            onEmojiClick={(emoji) => handleEmojiClick(emoji, text, setText, inputRef)}
+            onEmojiClick={(emoji) =>
+              handleEmojiClick(emoji, text, setText, inputRef)
+            }
             theme={"dark" as Theme}
             height={400}
           />

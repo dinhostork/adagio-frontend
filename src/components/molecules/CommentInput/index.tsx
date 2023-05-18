@@ -9,8 +9,7 @@ import {
   handleEmojiClick,
 } from "@/utils/handleEmojiClick";
 import { CommentInputProps } from "./types";
-
-
+import * as styles from "./styles";
 
 export const CommentInput: React.FC<CommentInputProps> = ({
   postId,
@@ -40,8 +39,8 @@ export const CommentInput: React.FC<CommentInputProps> = ({
   });
 
   return (
-    <div className="flex flex-row justify-between w-full ">
-      <div className="flex flex-row h-auto w-full ">
+    <div className={styles.commentInputContainer}>
+      <div className={styles.avatarContainer}>
         <AvatarImg
           src={loggedUserPhoto}
           alt={loggedUserName}
@@ -49,20 +48,20 @@ export const CommentInput: React.FC<CommentInputProps> = ({
           height={16}
           className="rounded-full"
         />
-        <div className="flex flex-col ml-2 w-full ">
-          <div className="flex flex-row justify-start h-auto w-full relative">
+        <div className={styles.inputContainer}>
+          <div className={styles.commentInputWrapper}>
             <InputAtom
-              className={`bg-carbone bg-opacity-75 text-white font-normal text-sm cursor-text w-full h-16 flex justify-normal pl-4 items-start pr-4 ${
-                commentText.length > 0 ? "ring-2" : " "
+              className={`${styles.inputAtom} ${
+                commentText.length > 0 ? styles.inputRing : ""
               }`}
               placeholder="Escreva um comentário..."
               value={commentText}
               onChange={(e) => setCommentText(e.target.value)}
               ref={commentInputRef}
             />
-            <div className="flex flex-row justify-end h-auto absolute right-2 bottom-1 gap-2">
+            <div className={styles.actionButtonsContainer}>
               <button
-                className="text-white font-normal text-sm cursor-pointer h-auto"
+                className={styles.emojiButton}
                 onClick={() => {
                   setShowEmojiPicker(!showEmojiPicker);
                 }}
@@ -70,7 +69,7 @@ export const CommentInput: React.FC<CommentInputProps> = ({
                 <GrEmoji className="hover:text-gray-dark" />
               </button>
               <button
-                className="text-white font-normal text-sm cursor-pointer h-auto"
+                className={styles.sendButton}
                 onClick={() => {
                   // TODO - implement send comment
                 }}
@@ -80,10 +79,7 @@ export const CommentInput: React.FC<CommentInputProps> = ({
             </div>
           </div>
           {showEmojiPicker && (
-            <div
-              className="absolute bottom-0 right-2 z-20"
-              ref={emojiPickerRef}
-            >
+            <div className={styles.emojiPickerContainer} ref={emojiPickerRef}>
               <EmojiPicker
                 theme={"dark" as Theme}
                 height={400}

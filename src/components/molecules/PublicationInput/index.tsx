@@ -9,6 +9,7 @@ import { MediaFile } from "./types";
 import { PublicationTextArea } from "@/components/atoms/PublicationTextArea";
 import * as styles from "./styles";
 import Image from "next/image";
+import { handleEmojiBoxOutsideClick, handleEmojiClick } from "@/utils/handleEmojiClick";
 
 export const PublicationInput = () => {
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
@@ -16,21 +17,6 @@ export const PublicationInput = () => {
   const [files, setFiles] = useState<MediaFile[]>([]);
   const [text, setText] = useState("");
 
-  const handleEmojiClick = (emoji: EmojiClickData) => {
-    const { emoji: emojiImage } = emoji;
-    if (!inputRef.current) return;
-    const startPos = inputRef.current.selectionStart;
-    const endPos = inputRef.current.selectionEnd;
-    const textBeforeCursor = text.slice(0, startPos);
-    const textAfterCursor = text.slice(endPos);
-    const newText = textBeforeCursor + emojiImage + textAfterCursor;
-    setText(newText);
-    inputRef.current.focus();
-    inputRef.current.setSelectionRange(
-      startPos + emojiImage.length,
-      startPos + emojiImage.length
-    );
-  };
 
   const handleMediaAreaIconClick = () => {
     setoppenedMediaArea(!oppenedMediaArea);
@@ -39,19 +25,11 @@ export const PublicationInput = () => {
   const inputRef = useRef() as React.MutableRefObject<HTMLTextAreaElement>;
   const emojiPickerRef = useRef() as React.MutableRefObject<HTMLDivElement>;
 
-  const handleOutsideClick = (e: MouseEvent) => {
-    if (
-      emojiPickerRef.current &&
-      !emojiPickerRef.current.contains(e.target as Node)
-    ) {
-      setShowEmojiPicker(false);
-    }
-  };
-
+  
   useEffect(() => {
-    document.addEventListener("click", handleOutsideClick, true);
+    document.addEventListener("click", (e)=> handleEmojiBoxOutsideClick(e, emojiPickerRef, setShowEmojiPicker), true);
     return () => {
-      document.removeEventListener("click", handleOutsideClick, true);
+      document.removeEventListener("click", (e)=> handleEmojiBoxOutsideClick(e, emojiPickerRef, setShowEmojiPicker), true);
     };
   });
 
@@ -118,7 +96,7 @@ export const PublicationInput = () => {
             />
           </button>
           <EmojiPicker
-            onEmojiClick={handleEmojiClick}
+            onEmojiClick={(emoji) => handleEmojiClick(emoji, text, setText, inputRef)}
             theme={"dark" as Theme}
             height={400}
           />

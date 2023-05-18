@@ -1,8 +1,8 @@
 import { JamSessionStories } from "@/components/molecules/JamSessionStories";
 import { PublicationInput } from "@/components/molecules/PublicationInput";
-import { UserPost } from "@/components/molecules/UserPost";
-import { Post } from "@/components/molecules/UserPost/types";
-import { randomPostsGenerator } from "@/utils/fakePostsGenerator";
+import { UserPost } from "@/components/organisms/UserPost";
+import { Post } from "@/components/organisms/UserPost/types";
+import { randomPostsGenerator } from "@/mocks/fakePostsGenerator";
 import { useEffect, useState } from "react";
 
 export const Main = () => {

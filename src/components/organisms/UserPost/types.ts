@@ -1,3 +1,4 @@
+import { CommentType } from "@/components/molecules/Comment/types";
 
 export interface PostMedia {
     id: string;
@@ -5,6 +6,7 @@ export interface PostMedia {
     url: string;
     thumbnail: string;
   }
+  
   export interface Post {
     id: string;
     ownerName: string;
@@ -15,9 +17,12 @@ export interface PostMedia {
     shares: number;
     liked: boolean;
     media: PostMedia[];
+    commentsList?: CommentType[];
   }
   
   
   export type UserPostProps = {
     post: Post;
   };
+
+ 

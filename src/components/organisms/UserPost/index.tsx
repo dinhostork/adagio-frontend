@@ -1,3 +1,8 @@
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+
 import AvatarImg from "@/components/atoms/Avatar";
 import Image from "next/image";
 import { useState } from "react";
@@ -7,14 +12,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
 import * as styles from "./styles";
 import { PostMedia, UserPostProps } from "./types";
-
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
+import { CommentInput } from "../../molecules/CommentInput";
+import { Comment } from "../../molecules/Comment";
 
 export const UserPost: React.FC<UserPostProps> = ({ post, ...props }) => {
+  const [showCommentModal, setShowCommentModal] = useState(false);
   const [showFullText, setShowFullText] = useState(false);
+
   return (
     <div className={styles.postWrapper} key={post.id}>
       <div className={styles.postContainer}>
@@ -126,7 +130,7 @@ export const UserPost: React.FC<UserPostProps> = ({ post, ...props }) => {
             <button
               className={styles.footerButton}
               onClick={() => {
-                // TODO - implement comment modal
+                setShowCommentModal(!showCommentModal);
               }}
             >
               <BiCommentEdit size={16} className={styles.commentIcon} />
@@ -149,6 +153,23 @@ export const UserPost: React.FC<UserPostProps> = ({ post, ...props }) => {
             </button>
           </div>
         </div>
+        {showCommentModal &&
+          (post.commentsList ? (
+            <div className={styles.commentsContainer}>
+              <CommentInput
+                loggedUserName="Dinho Stork"
+                loggedUserPhoto="
+                https://avatars.githubusercontent.com/u/5059050?v=4"
+                postId={post.id}
+              />
+
+              {post.commentsList.map((comment) => (
+                <Comment key={comment.id} comment={comment} />
+              ))}
+            </div>
+          ) : (
+            ""
+          ))}
       </div>
     </div>
   );

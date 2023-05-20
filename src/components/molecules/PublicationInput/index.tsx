@@ -84,8 +84,8 @@ export const PublicationInput: React.FC<PublicationInputProps> = ({
         />
 
         <div className={styles.privacyMenuButtonContainer}>
-          <button
-            className={styles.privacyMenuButton}
+          <div
+            className={styles.privacyMenu}
             onClick={() => setPrivacyMenuOpen(!privacyMenuOpen)}
           >
             {renderPrivacyIcon(privacy)}
@@ -94,7 +94,7 @@ export const PublicationInput: React.FC<PublicationInputProps> = ({
                 privacyMenuOpen ? styles.privacyMenuButtonIcon : ""
               }`}
             />
-          </button>
+          </div>
         </div>
 
         {privacyMenuOpen && (

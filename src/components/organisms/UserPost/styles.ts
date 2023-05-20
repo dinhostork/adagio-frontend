@@ -46,3 +46,6 @@ export const privacyMenuButtonContainer = "absolute top-0 right-4 py-2";
 export const privacyMenuButton =
   "flex flex-row items-center gap-1 text-gray-light hover:text-white transition-all ease-in-out";
 export const privacyMenuButtonIcon = "transform rotate-180";
+export const editingPostContainer = "flex flex-col gap-4";
+export const editingPostInput = "w-full h-20 p-4 rounded-md bg-carbone ring-1 ring-blue-light transition-all ease-in-out";
+export const editingPostButton =   "bg-blue-light rounded-md h-10 mt-4 disabled:bg-carbone transition ease-in-out hover:bg-b shadow-md";

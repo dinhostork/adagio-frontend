@@ -24,8 +24,7 @@ import { renderPrivacyIcon } from "@/utils/renderPrivacyIcon";
 import { MdOutlineDelete, MdOutlineEdit } from "react-icons/md";
 import { PrivacyOption } from "@/components/molecules/PublicationInput/types";
 import { PublicationTextArea } from "@/components/atoms/PublicationTextArea";
-import { DeletePostPopUp } from "@/components/atoms/DeletePostPopUp";
-import { set } from "mongoose";
+import { DeletePostPopUp } from "@/components/molecules/DeletePostPopUp";
 import { editPost, likePost, sharePost, unlikePost, updatePostPrivacy } from "./actions";
 
 export const UserPost: React.FC<UserPostProps> = ({

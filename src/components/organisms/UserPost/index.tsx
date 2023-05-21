@@ -191,7 +191,7 @@ export const UserPost: React.FC<UserPostProps> = ({
             </div>
             {postMenuOpen && (
               <div className={styles.postMenuOptions} ref={postMenuRef}>
-                {post.ownerId !== loggedUserId && (
+                {post.ownerId === loggedUserId && (
                   <>
                     <button
                       className={styles.postMenuOption}

@@ -1,0 +1,16 @@
+export const backdrop = "fixed z-50 inset-0 overflow-y-auto top-0 left-0 right-0 bottom-0";
+export const backdropOverlay = "fixed inset-0 bg-carbone-secondary bg-opacity-25 transition-opacity";
+export const hiddenScreenReader = "hidden sm:inline-block sm:align-middle sm:h-screen";
+export const dialogContainer = "inline-block align-bottom bg-carbone rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full";
+export const dialogHeader = "bg-carbone-tertiary px-4 pt-5 pb-4 sm:p-6 sm:pb-4";
+export const iconContainer = "flex justify-center";
+export const deleteIcon = "h-6 w-6 text-gray-light";
+export const dialogContent = "mt-3 text-center sm:mt-5";
+export const dialogTitle = "text-lg leading-6 font-medium text-gray-900";
+export const dialogDescription = "mt-2";
+export const dialogButtonsContainer = "bg-gray-50 px-4 py-3 sm:px-6 flex justify-center transition-all ease-in-out";
+export const confirmButton = "inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-light focus:outline-none sm:ml-3 sm:w-auto sm:text-sm";
+export const cancelButton = "inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm";
+export const container = "flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
+export const iconFullContainer = "flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-carbone-secondary";
+export const information = "text-sm text-gray-500"

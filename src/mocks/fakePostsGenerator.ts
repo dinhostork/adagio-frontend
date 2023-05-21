@@ -13,6 +13,8 @@ export const randomPostsGenerator = (count: number): Post[] => {
         comments: Math.floor(Math.random() * 100),
         shares: Math.floor(Math.random() * 100),
         liked: Math.random() > 0.5,
+        privacy: Math.random() > 0.5 ? "public" : "friends",
+        ownerId: uuid4(),
         media: [
           {
             id: uuid4(),

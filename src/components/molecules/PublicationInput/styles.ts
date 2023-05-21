@@ -47,6 +47,6 @@ export const privacyMenuItem =
 
 export const privacyMenuButtonContainer = "absolute top-0 right-4 py-2";
 
-export const privacyMenuButton = "flex flex-row items-center gap-1 text-gray-light hover:text-white transition-all ease-in-out";
+export const privacyMenu = "flex flex-row items-center gap-1 text-gray-light hover:text-white transition-all ease-in-out cursor-pointer";
 
 export const privacyMenuButtonIcon = "transform rotate-180";

@@ -4,6 +4,7 @@ import { UserPost } from "@/components/organisms/UserPost";
 import { Post } from "@/components/organisms/UserPost/types";
 import { randomPostsGenerator } from "@/mocks/fakePostsGenerator";
 import { useEffect, useState } from "react";
+import { v4 as uuid4 } from "uuid";
 
 export const Main = () => {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -16,7 +17,7 @@ export const Main = () => {
       <PublicationInput />
       <JamSessionStories />
       {posts.map((post) => (
-        <UserPost post={post} key={post.id} />
+        <UserPost post={post} key={post.id} loggedUserId={uuid4()}/>
       ))}
     </div>
   );

@@ -27,7 +27,6 @@ import { PublicationTextArea } from "@/components/atoms/PublicationTextArea";
 import { DeletePostPopUp } from "@/components/molecules/DeletePostPopUp";
 import { editPost, likePost, sharePost, unlikePost, updatePostPrivacy } from "./actions";
 import { SharePostPopUp } from "@/components/molecules/SharePostPopUp";
-import { set } from "mongoose";
 
 export const UserPost: React.FC<UserPostProps> = ({
   post,

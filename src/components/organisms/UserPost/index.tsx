@@ -26,6 +26,8 @@ import { PrivacyOption } from "@/components/molecules/PublicationInput/types";
 import { PublicationTextArea } from "@/components/atoms/PublicationTextArea";
 import { DeletePostPopUp } from "@/components/molecules/DeletePostPopUp";
 import { editPost, likePost, sharePost, unlikePost, updatePostPrivacy } from "./actions";
+import { SharePostPopUp } from "@/components/molecules/SharePostPopUp";
+import { set } from "mongoose";
 
 export const UserPost: React.FC<UserPostProps> = ({
   post,
@@ -42,7 +44,8 @@ export const UserPost: React.FC<UserPostProps> = ({
   const [editingPost, setEditingPost] = useState(false);
   const [postText, setPostText] = useState(post.text);
   const [deletePostModalOpen, setDeletePostModalOpen] = useState(false);
-
+  const [sharePostModalOpen, setSharePostModalOpen] = useState(false);
+  
   const postMenuRef = useRef<HTMLDivElement>(null);
   const privacyMenuRef = useRef<HTMLDivElement>(null);
 
@@ -96,6 +99,12 @@ export const UserPost: React.FC<UserPostProps> = ({
   return (
     <>
       {" "}
+      <SharePostPopUp
+        postId={post.id}
+        open={sharePostModalOpen}
+        postOwner={post.ownerName}
+        onClose={() => setSharePostModalOpen(false)}
+      />
       <DeletePostPopUp
         postId={post.id}
         open={deletePostModalOpen}
@@ -345,7 +354,7 @@ export const UserPost: React.FC<UserPostProps> = ({
               <button
                 className={styles.footerButton}
                 onClick={() => {
-                  sharePost(post.id, 'todo')
+                  setSharePostModalOpen(true);
                 }}
               >
                 <BiShare size={16} className={styles.shareIcon} />

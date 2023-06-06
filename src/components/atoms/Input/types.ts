@@ -1,4 +1,4 @@
-export interface InputTypes {
+export interface InputTypes extends React.InputHTMLAttributes<HTMLInputElement>{
   placeholder?: string;
   type?: string;
   id?: string;

@@ -10,10 +10,12 @@ import { MenuItemWrapper } from "@/components/atoms/MenuItemWrapper";
 import { MenuItem } from "@/components/atoms/MenuItem";
 import { MenuHeader } from "@/components/atoms/MenuHeader";
 import { avatarMenuWrapperPosition, itemSpacing, menuWidth } from "./styles";
+import { signOut, useSession } from "next-auth/react";
 
 export const Avatar: React.FC = () => {
   const { isOpen, toggle, menuRef } = useComponentsMenu();
-
+  const {data: session} = useSession();
+  
   const handleAvatarClick = (event: React.MouseEvent) => {
     if (menuRef.current && menuRef.current.contains(event.target as Node)) {
       return;
@@ -33,7 +35,7 @@ export const Avatar: React.FC = () => {
           className={avatarMenuWrapperPosition}
         >
           <Menu width={menuWidth}>
-            <MenuHeader title="Dinho Stork" />
+            <MenuHeader title={session ? session.user?.name : "  "} />
 
             <MenuItemWrapper>
               <MenuItem >
@@ -48,9 +50,11 @@ export const Avatar: React.FC = () => {
                 <BiLockAlt size={24} className={itemSpacing} />
                 Privacidade
               </MenuItem>
-              <MenuItem >
+              <MenuItem>
                 <IoIosLogOut size={24} className={itemSpacing} />
-                Sair
+                <span onClick={() => signOut({
+                  
+                })}>Sair</span>
               </MenuItem>
             </MenuItemWrapper>
           </Menu>

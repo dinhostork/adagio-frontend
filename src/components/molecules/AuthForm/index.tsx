@@ -1,12 +1,16 @@
 import { LoginFormProps } from "./types";
 import * as styles from "./styles";
 import Link from "next/link";
+import { AiOutlineLoading } from "react-icons/ai";
 
 export const AuthForm: React.FC<LoginFormProps> = ({
   info,
   children,
   forgotPassword,
   register = false,
+  submit,
+  loading,
+  error
 }) => {
   return (
     <div className={styles.container}>
@@ -14,12 +18,13 @@ export const AuthForm: React.FC<LoginFormProps> = ({
       <h2 className={styles.subtitle}>
         A sinfonia social dos músicos, onde as notas se encontram
       </h2>
-      <span className={styles.infoText}>{info}</span>
+      <span className={error? styles.infoTextError : styles.infoText}>{error? error : info}</span>
       <form
         className={styles.formContainer}
         onSubmit={(e) => {
           e.preventDefault();
           console.log("Form submitted");
+          submit(e);
         }}
       >
         {children}
@@ -30,8 +35,15 @@ export const AuthForm: React.FC<LoginFormProps> = ({
             </a>
           </span>
         )}
-        <button className={styles.button}>
-          {register ? "Cadastrar" : "Entrar"}
+        <button className={styles.button} 
+        disabled={loading}
+        >
+          {
+            loading && <div >
+              <AiOutlineLoading className='animate-spin'/>
+            </div>
+          }
+          {loading ? "Carregando..." : register ? "Cadastrar" : "Entrar"}
         </button>
       </form>
       <hr className={styles.hrLine} />

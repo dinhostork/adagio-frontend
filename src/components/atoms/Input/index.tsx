@@ -7,6 +7,7 @@ export const Input: React.FC<InputTypes> = ({
   type,
   id,
   onChange,
+  error
 }) => {
   return (
     <div className={inputWrapper}>
@@ -16,6 +17,7 @@ export const Input: React.FC<InputTypes> = ({
         type={type}
         id={id}
         onChange={onChange}
+        className={error ? "ring-2 ring-red-light" : ""}
       />
     </div>
   );

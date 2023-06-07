@@ -20,5 +20,5 @@ export const InputAtom = tw.input`
     pl-10
     focus:outline-none
     focus:ring-2
-
+    
 `;

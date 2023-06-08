@@ -1,7 +1,7 @@
 import { RegisterForm } from "@/components/organisms/RegisterForm";
 import Head from "next/head";
 import Image from "next/image";
-import * as authStyles from '../styles'
+import * as authStyles from '../../../styles/shared/authStyles'
 
 export default function Register() {
   return(

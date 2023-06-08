@@ -1,7 +1,7 @@
 import { LoginForm } from "@/components/organisms/LoginForm";
 import Head from "next/head";
 import Image from "next/image";
-import * as authStyles from "../styles";
+import * as authStyles from "../../../styles/shared/authStyles";
 
 export default function Login() {
   return (

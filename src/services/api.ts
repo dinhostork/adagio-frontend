@@ -1,4 +1,4 @@
-export const apiurl = process.env.REACT_APP_API_URL || ""
+export const apiurl = process.env.NEXT_PUBLIC_API_URL as string
 
 export class API {
   apiurl: string;

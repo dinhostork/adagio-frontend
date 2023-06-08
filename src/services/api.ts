@@ -1,4 +1,4 @@
-export const apiurl = "http://localhost:5000/v1";
+export const apiurl = process.env.REACT_APP_API_URL || ""
 
 export class API {
   apiurl: string;

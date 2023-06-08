@@ -36,7 +36,7 @@ export const RegisterForm = () => {
         signIn("credentials", {
           email: userData.email,
           password: userData.password,
-          callbackUrl: "/dashboard",
+          callbackUrl: "/",
         });
       }
     } catch (error) {

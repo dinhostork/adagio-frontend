@@ -29,7 +29,7 @@ export const LoginForm = () => {
 
     }else{
       setLoading(true);
-      router.push("/dashboard");
+      router.push("/");
     }
 
   };

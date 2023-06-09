@@ -15,6 +15,12 @@ export const RegisterForm = () => {
   const [loading, setLoading] = useState(false);
 
   const handleRegisterSubmit = async () => {
+    if (!name || !email || !password) {
+      setError("Preencha todos os campos");
+      setLoading(false);
+      return;
+    }
+
     setError("");
     setLoading(true);
 
@@ -65,6 +71,7 @@ export const RegisterForm = () => {
       />
       <Input
         placeholder="Email"
+        type="email"
         icon={<MdEmail size={16} type="email" />}
         onChange={(e) => {
           setEmail(e.target.value);
@@ -72,6 +79,7 @@ export const RegisterForm = () => {
       />
       <Input
         placeholder="Senha"
+        type="password"
         icon={<BiLock size={16} type="password" />}
         onChange={(e) => {
           setPassword(e.target.value);

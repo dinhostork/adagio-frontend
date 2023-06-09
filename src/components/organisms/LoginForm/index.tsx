@@ -3,18 +3,22 @@ import { Input } from "@/components/atoms/Input";
 import { BiLock } from "react-icons/bi";
 import { MdEmail } from "react-icons/md";
 import { useState } from "react";
-import { login, saveUserAndToken } from "@/services/auth";
-import { useSession, signIn, signOut } from "next-auth/react"
+import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 
 export const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const router = useRouter();
 
   const handleLogin = async () => {
+    if(!email || !password){
+      setError("Preencha todos os campos");
+      setLoading(false);
+      return;
+    }
     setLoading(true);
     setError("");
     const result = await signIn("credentials", {
@@ -26,12 +30,10 @@ export const LoginForm = () => {
     if (result?.error) {
       setError(result.error);
       setLoading(false);
-
-    }else{
+    } else {
       setLoading(true);
       router.push("/");
     }
-
   };
   return (
     <AuthForm
@@ -41,8 +43,8 @@ export const LoginForm = () => {
       error={error}
       submit={async (e) => {
         e.preventDefault();
-        setLoading(true)
-        await handleLogin()
+        setLoading(true);
+        await handleLogin();
       }}
     >
       <Input

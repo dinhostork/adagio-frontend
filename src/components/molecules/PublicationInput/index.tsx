@@ -20,6 +20,10 @@ import {
   IoMdPeople,
 } from "react-icons/io";
 import { renderPrivacyIcon } from "@/utils/renderPrivacyIcon";
+import { useSession } from "next-auth/react";
+import { handlePost } from "@/pages/api/auth/posts";
+import { AiOutlineLoading } from "react-icons/ai";
+import { toast } from "react-toastify";
 
 export const PublicationInput: React.FC<PublicationInputProps> = ({
   userPrivacyDefault = "public",
@@ -33,6 +37,28 @@ export const PublicationInput: React.FC<PublicationInputProps> = ({
     userPrivacyDefault
   );
 
+  const [loading, setLoading] = useState(false);
+
+  const { data: session } = useSession();
+
+  const handlePublish = async () => {
+    setLoading(true);
+    await handlePost({
+      text,
+      hasMedia: files.length > 0,
+      privacy_id: privacy === "public" ? 1 : privacy === "friends" ? 2 : 3,
+
+    }, session?.user.token as string).then(() => {
+      toast.info("Publicação realizada com sucesso!");
+      setText("");
+      setFiles([]);
+      setLoading(false);
+    }).catch(() => {
+      toast.error("Erro ao publicar!");
+      setLoading(false);
+    });
+    
+  };
 
   const changePrivacy = (privacy: PrivacyOption) => {
     setPrivacy(privacy);
@@ -224,12 +250,19 @@ export const PublicationInput: React.FC<PublicationInputProps> = ({
       {text.length > 0 && (
         <button
           className={styles.publishButton}
-          disabled={text.length <= 0}
+          disabled={text.length <= 0 || loading}
           onClick={() => {
-            // TODO @dinhostork : Implementar publicação
+           handlePublish()
           }}
         >
-          Publicar
+          {loading ? (
+            <div className="flex w-full justify-center items-center">
+             <AiOutlineLoading className='animate-spin'/>
+            </div>
+          ) : (
+            <span>Publicar</span>
+          )}
+          
         </button>
       )}
     </div>

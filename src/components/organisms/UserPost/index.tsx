@@ -22,7 +22,7 @@ import { CommentInput } from "../../molecules/CommentInput";
 import { Comment } from "../../molecules/Comment";
 import { renderPrivacyIcon } from "@/utils/renderPrivacyIcon";
 import { MdOutlineDelete, MdOutlineEdit } from "react-icons/md";
-import { PrivacyOption } from "@/components/molecules/PublicationInput/types";
+import { PrivacyOption } from "@/components/organisms/PublicationInput/types";
 import { PublicationTextArea } from "@/components/atoms/PublicationTextArea";
 import { DeletePostPopUp } from "@/components/molecules/DeletePostPopUp";
 import { editPost, likePost, sharePost, unlikePost, updatePostPrivacy } from "./actions";

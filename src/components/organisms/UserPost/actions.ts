@@ -1,4 +1,4 @@
-import { PrivacyOption } from "@/components/molecules/PublicationInput/types";
+import { PrivacyOption } from "@/components/organisms/PublicationInput/types";
 
 
 export const editPost = (postId: string, text: string) => {

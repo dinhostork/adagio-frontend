@@ -8,7 +8,7 @@ import {
   IoMdPeople,
 } from "react-icons/io";
 import { renderPrivacyIcon } from "@/utils/renderPrivacyIcon";
-import { PrivacyOption } from "../PublicationInput/types";
+import { PrivacyOption } from "../../organisms/PublicationInput/types";
 import { sharePost } from "./actions";
 import {
   handleEmojiBoxOutsideClick,

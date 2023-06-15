@@ -1,5 +1,5 @@
 import { CommentType } from "@/components/molecules/Comment/types";
-import { PrivacyOption } from "@/components/molecules/PublicationInput/types";
+import { PrivacyOption } from "@/components/organisms/PublicationInput/types";
 
 export interface PostMedia {
     id: string;

@@ -28,7 +28,7 @@ export const fileUploadLabel = "cursor-pointer";
 export const inputFile = "hidden";
 
 export const mediaItem =
-  "flex flex-row justify-between items-center w-20 h-20 border-2 border-gray-dark relative";
+  "flex flex-row justify-between items-center w-20 h-20 border-2 border-gray-dark relative object-cover";
 
 export const closeButton = "absolute right-0 top-0";
 
@@ -50,3 +50,5 @@ export const privacyMenuButtonContainer = "absolute top-0 right-4 py-2";
 export const privacyMenu = "flex flex-row items-center gap-1 text-gray-light hover:text-white transition-all ease-in-out cursor-pointer";
 
 export const privacyMenuButtonIcon = "transform rotate-180";
+
+export const mediaItemThumbnail = "w-full h-full object-cover";

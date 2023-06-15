@@ -1,4 +1,4 @@
-import { PrivacyOption } from "@/components/molecules/PublicationInput/types";
+import { PrivacyOption } from "@/components/organisms/PublicationInput/types";
 import { IoMdGlobe, IoMdLock, IoMdPeople } from "react-icons/io";
 
 export const renderPrivacyIcon = (privacy: PrivacyOption) => {

@@ -11,3 +11,7 @@ export interface PublicationInputProps
   extends React.HTMLAttributes<HTMLDivElement> {
   userPrivacyDefault?: PrivacyOption;
 }
+
+export type publicationFile = {
+  file: File;
+}

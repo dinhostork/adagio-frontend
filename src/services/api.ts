@@ -55,4 +55,16 @@ export class API {
 
     return response.json();
   }
+
+  async postMultiPart(endpoint: string, body: any, token?: string) {
+    const response = await fetch(`${this.apiurl}/${endpoint}`, {
+      method: "POST",
+      headers: {
+        Authorization: token ? `Bearer ${token}` : "",
+      },
+      body: body,
+    });
+
+    return response.json();
+  }
 }

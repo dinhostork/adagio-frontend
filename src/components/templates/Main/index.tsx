@@ -1,5 +1,5 @@
 import { JamSessionStories } from "@/components/molecules/JamSessionStories";
-import { PublicationInput } from "@/components/molecules/PublicationInput";
+import { PublicationInput } from "@/components/organisms/PublicationInput";
 import { UserPost } from "@/components/organisms/UserPost";
 import { Post } from "@/components/organisms/UserPost/types";
 import { randomPostsGenerator } from "@/mocks/fakePostsGenerator";
@@ -9,7 +9,7 @@ import { v4 as uuid4 } from "uuid";
 export const Main = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   useEffect(() => {
-    setPosts(randomPostsGenerator(10));
+    setPosts(randomPostsGenerator(0));
   }, []);
 
   return (
